@@ -3,11 +3,13 @@ import useTime from "../hook/useTime";
 import { timezoneType } from "../constraint/TIMEZONE_DATA";
 
 type ShowTimerType = {
-  timezoneData: timezoneType
-}
+  timezoneData: timezoneType;
+};
 
-function ShowTimer({timezoneData}:ShowTimerType) {
-  const { timeNow, AMPM, dateNow } = useTime({timezoneData:timezoneData.timeZone});
+function ShowTimer({ timezoneData }: ShowTimerType) {
+  const { timeNow, AMPM, dateNow } = useTime({
+    timezoneData: timezoneData.timeZone,
+  });
   return (
     <div className=" w-[36.5rem] flex justify-center flex-col">
       <div className="flex justify-end mr-2">
@@ -24,4 +26,6 @@ function ShowTimer({timezoneData}:ShowTimerType) {
   );
 }
 
-export default memo(ShowTimer);
+const MemoShowTimer = memo(ShowTimer);
+
+export default MemoShowTimer;
