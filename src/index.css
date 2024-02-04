@@ -12,18 +12,18 @@
   }
 
   h1 {
-    @apply text-9xl
+    @apply text-5xl sm:text-7xl lg:text-8xl 2xl:text-9xl
   }
   h2{
     @apply text-6xl
   }
   h3{
-    @apply text-4xl
+    @apply text-xl sm:text-2xl lg:text-3xl 2xl:text-4xl
   }
 
   button{
     @apply button_df__transition px-[0.4em] py-[0.2em] border-2 border-solid border-transparent rounded-md
-    bg-grayTen text-white text-2xl hover:cursor-pointer hover:border-white
+    bg-grayTen text-white text-xl xl:text-2xl hover:cursor-pointer hover:border-white
     
   }
 }

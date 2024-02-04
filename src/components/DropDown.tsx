@@ -16,7 +16,7 @@ function DropDown({ setTimezone }: DropDownType) {
         TimeZone
         <span className={`material-symbols-outlined  ${showDropDown ? "rotate-0" : "rotate-180"} my-2 ml-1 transition-all duration-500 ease-in-out`}>chevron_left</span>
       </button>
-      <ul className={`absolute ${showDropDown ? "left-12 ": "-left-[100%]"}  w-40 mt-4 transition-all duration-500 ease-in-out`}>
+      <ul className={`absolute ${showDropDown ? "left-4 sm:left-12 ": "-left-[100%]"}  w-40 mt-4 bg-grayTen transition-all duration-500 ease-in-out`}>
         {timezoneData.map((item, index) => (
           <li id={`timezone-${index + 1}`} className="mb-1 ">
             <button
