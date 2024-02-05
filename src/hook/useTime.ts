@@ -15,6 +15,7 @@ function useTime({ timezoneData }: useTimeType) {
         timeZone: timezoneData,
       });
       const currentDate = new Date(localTime);
+      
       //time
       const hours = currentDate.getHours();
       const minutes = currentDate.getMinutes();
@@ -34,7 +35,7 @@ function useTime({ timezoneData }: useTimeType) {
       setTimeNow(`${formattedHours}:${formattedMinutes}:${formattedSecond}`);
       setAMPM(ampm);
       setDateNow(`${day}/${month}/${year}`);
-    });
+    }, 1000);
 
     return () => clearInterval(timer);
   }, [timezoneData]);
