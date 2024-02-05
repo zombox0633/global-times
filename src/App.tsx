@@ -14,7 +14,7 @@ function App() {
       <div className="sm:col-start-1 col-end-3 h-20 sm:h-screen">
         <DropDown setTimezone={setTimezone} />
       </div>
-      <div className="sm:col-start-3 md:col-start-4 xl:col-start-5 col-end-9 flex justify-center w-64 sm:w-[30rem] xl:w-[40rem]">
+      <div className="sm:col-start-3 md:col-start-4 xl:col-start-5 col-end-9 flex justify-center w-64 sm:w-[30rem] xl:w-[40rem] xl:h-[90vh]">
         <ShowTimer timezoneData={timezone} />
       </div>
     </div>
