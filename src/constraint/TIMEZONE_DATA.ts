@@ -1,9 +1,9 @@
-export type timezoneType = {
+export type GlobalTimeType = {
   country: string;
   timeZone: string;
 };
 
-type timezoneDataType = timezoneType[];
+export type timezoneDataType = GlobalTimeType[];
 
 export const timezoneData: timezoneDataType = [
   { country: "China", timeZone: "Asia/Shanghai" },

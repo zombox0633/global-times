@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { timezoneData, timezoneType } from "../constraint/TIMEZONE_DATA";
+import { timezoneData, GlobalTimeType } from "../constraint/TIMEZONE_DATA";
 
-type DropDownType = {
-  setTimezone: React.Dispatch<React.SetStateAction<timezoneType>>;
+type DropDownPopsType = {
+  setTimezone: React.Dispatch<React.SetStateAction<GlobalTimeType>>;
 };
 
-function DropDown({ setTimezone }: DropDownType) {
+function DropDown({ setTimezone }: DropDownPopsType) {
   const [showDropDown, setShowDropDown] = useState<boolean>(false);
   return (
     <div>
@@ -18,7 +18,7 @@ function DropDown({ setTimezone }: DropDownType) {
       </button>
       <ul className={`absolute ${showDropDown ? "top-20 sm:top-24": "-top-[100%]"} w-40 mt-4 bg-grayTen transition-all duration-1000 ease-in-out`}>
         {timezoneData.map((item, index) => (
-          <li id={`timezone-${index + 1}`} className="mb-1 z-10">
+          <li key={`timezone-${index + 1}`} className="mb-1 z-10">
             <button
               className="pl-4 text-start w-[9.75rem]"
               value={item.timeZone}
