@@ -8,7 +8,7 @@
   }
 
   body {
-    @apply max-w-[100vw] max-h-[100vh] bg-grayTen text-white font-Oswald;
+    @apply max-w-[100dvw] max-h-[100dvw] bg-grayTen text-white font-Oswald;
   }
 
   h1 {

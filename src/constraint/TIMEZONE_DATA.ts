@@ -16,4 +16,4 @@ export const timezoneData: timezoneDataType = [
   { country: "Spain", timeZone: "Europe/Madrid" },
   { country: "Thailand", timeZone: "Asia/Bangkok" },
   { country: "USA", timeZone: "America/New_York" },
-];
+] as const;
