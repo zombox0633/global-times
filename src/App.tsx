@@ -1,12 +1,13 @@
 import { useState } from "react";
 import DropDown from "./components/DropDown";
-import ContainerDateTime from "./components/ContainerDateTime";
 import { GlobalTimeType } from "./constraint/TIMEZONE_DATA";
 import { TimeStampProvider } from "./context/TimeStampProvider";
+import ContainerDateTime from "./components/container/ContainerDateTime";
 
 function App() {
   const [timezone, setTimezone] = useState<GlobalTimeType>({
     country: "Thailand",
+    capital: "Bangkok",
     timeZone: "Asia/Bangkok",
   });
 

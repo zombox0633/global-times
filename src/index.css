@@ -8,23 +8,22 @@
   }
 
   body {
-    @apply max-w-[100dvw] max-h-[100dvw] bg-grayTen text-white font-Oswald;
+    @apply max-w-[100dvw] max-h-[100dvw] bg-eerieBlack text-white font-Oswald;
   }
 
   h1 {
-    @apply text-5xl sm:text-7xl lg:text-8xl 2xl:text-9xl
+    @apply text-5xl sm:text-7xl lg:text-8xl 2xl:text-9xl;
   }
-  h2{
-    @apply text-6xl
+  h2 {
+    @apply text-6xl;
   }
-  h3{
-    @apply text-xl sm:text-2xl lg:text-3xl 2xl:text-4xl
+  h3 {
+    @apply text-xl sm:text-2xl lg:text-3xl 2xl:text-4xl;
   }
 
-  button{
+  button {
     @apply button_df__transition px-[0.4em] py-[0.2em] border-2 border-solid border-transparent rounded-md
-    bg-grayTen text-white text-xl xl:text-2xl hover:cursor-pointer hover:border-white
-    
+    bg-eerieBlack text-white text-xl xl:text-2xl hover:cursor-pointer hover:border-white;
   }
 }
 
@@ -32,19 +31,23 @@
   /* icon */
   .material-symbols-outlined {
     font-size: 2.5rem;
-    font-variation-settings:
-      "FILL" 0,
-      "wght" 400,
-      "GRAD" 0,
-      "opsz" 24;
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
   }
 
   .button_df__transition {
-    transition:
-      border-color 0.25s,
+    transition: border-color 0.25s;
   }
-  .focus__df{
+  .focus__df {
     @apply focus:outline focus:outline-offset-4 focus:outline-[2.5px] focus:outline-white
-    focus-visible:outline focus-visible:outline-offset-4 focus-visible:outline-[2.5px] focus-visible:outline-white
+    focus-visible:outline focus-visible:outline-offset-4 focus-visible:outline-[2.5px] focus-visible:outline-white;
+  }
+
+  /* BoxCountryDateTime */
+  .box_date_time__link:hover .box_date_time__bg {
+    @apply scale-[10]; 
+  }
+
+  .box_date_time__bg {
+    @apply transition-all duration-500 ease-in;
   }
 }

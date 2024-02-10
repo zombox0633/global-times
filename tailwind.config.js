@@ -7,7 +7,8 @@ export default {
     },
     extend: {
       colors: {
-        grayTen: "#1a1a1a",
+        night:"#121212",
+        eerieBlack: "#1a1a1a",
       },
     },
   },
