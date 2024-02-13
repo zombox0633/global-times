@@ -1,3 +1,4 @@
+import { memo } from "react";
 import dayjs from "dayjs";
 import { useDateTimeContext } from "../../context/TimeStampProvider";
 
@@ -12,4 +13,6 @@ function DisplayGlobalDate() {
   );
 }
 
-export default DisplayGlobalDate;
+const MemoDisplayGlobalDate = memo(DisplayGlobalDate);
+
+export default MemoDisplayGlobalDate;

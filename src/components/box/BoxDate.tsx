@@ -1,10 +1,17 @@
+import { memo } from "react";
 
-function BoxDate() {
+type BoxDatePropsType = {
+  formattedDate: string;
+};
+
+function BoxDate({ formattedDate }: BoxDatePropsType) {
   return (
     <div>
-      <p className=" text-xl">01/01/2000</p>
+      <p className=" text-xl">{formattedDate}</p>
     </div>
   );
 }
 
-export default BoxDate;
+const MemoBoxDate = memo(BoxDate);
+
+export default MemoBoxDate;

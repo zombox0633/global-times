@@ -1,20 +1,21 @@
 export type GlobalTimeType = {
   country: string;
-  capital: string;
-  timeZone: string;
+  city: string;
+  continent: string;
 };
 
-export type timezoneDataType = GlobalTimeType[];
+export type TimezoneDataType = GlobalTimeType[];
 
-export const timezoneData: timezoneDataType = [
-  { country: "China", capital: "Beijing", timeZone: "Asia/Shanghai" },
-  { country: "England", capital: "London", timeZone: "Europe/London" },
-  { country: "France", capital: "Paris", timeZone: "Europe/Paris" },
-  { country: "Germany", capital: "Berlin", timeZone: "Europe/Berlin" },
-  { country: "India", capital: "New Delhi", timeZone: "Asia/Kolkata" },
-  { country: "Japan", capital: "Tokyo", timeZone: "Asia/Tokyo" },
-  { country: "Singapore", capital: "Singapore", timeZone: "Asia/Singapore" },
-  { country: "Spain", capital: "Madrid", timeZone: "Europe/Madrid" },
-  { country: "Thailand", capital: "Bangkok", timeZone: "Asia/Bangkok" },
-  { country: "USA", capital: "Washington, D.C.", timeZone: "America/New_York" },
+
+export const timezoneData: TimezoneDataType = [
+  { country: "China", city: "Shanghai", continent: "Asia" },
+  { country: "England", city: "London", continent: "Europe" },
+  { country: "France", city: "Paris", continent: "Europe" },
+  { country: "Germany", city: "Berlin", continent: "Europe" },
+  { country: "India", city: "Kolkata", continent: "Asia" },
+  { country: "Japan", city: "Tokyo", continent: "Asia" },
+  { country: "Singapore", city: "Singapore", continent: "Asia" },
+  { country: "Spain", city: "Madrid", continent: "Europe" },
+  { country: "Thailand", city: "Bangkok", continent: "Asia" },
+  { country: "USA", city: "New York", continent: "America" },
 ] as const;

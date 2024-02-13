@@ -1,23 +1,26 @@
 import { useEffect, useState } from "react";
+import { GlobalTimeType } from "../constraint/TIMEZONE_DATA";
 
-export type UseTimePopsType = {
-  timezoneData: string;
+export type UseTimePropsType = {
+  timezoneData: GlobalTimeType;
 };
 
-function useTime({ timezoneData }: UseTimePopsType) {
+function useTime({ timezoneData }: UseTimePropsType) {
   const [timeStamp, setTimeStamp] = useState<string>("");
+
+  const formattedTimeZone = `${timezoneData.continent}/${timezoneData.city}`.replaceAll(" ","_");
 
   useEffect(() => {
     const timer = setInterval(() => {
       const localTime = new Date().toLocaleString("en-US", {
-        timeZone: timezoneData,
+        timeZone: formattedTimeZone,
       });
       const currentDate = new Date(localTime).toISOString();
       setTimeStamp(currentDate);
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [timezoneData]);
+  }, [formattedTimeZone]);
 
   return {
     timeStamp,

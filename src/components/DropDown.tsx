@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { timezoneData, GlobalTimeType } from "../constraint/TIMEZONE_DATA";
+import { useDateTimeContext } from "../context/TimeStampProvider";
+import { timezoneData } from "../constraint/TIMEZONE_DATA";
 
-type DropDownPopsType = {
-  setTimezone: React.Dispatch<React.SetStateAction<GlobalTimeType>>;
-};
-
-function DropDown({ setTimezone }: DropDownPopsType) {
+function DropDown() {
+  const { setTimezone } = useDateTimeContext();
   const [showDropDown, setShowDropDown] = useState<boolean>(false);
+
   return (
     <div>
       <button
@@ -31,12 +30,12 @@ function DropDown({ setTimezone }: DropDownPopsType) {
           <li key={`timezone-${index + 1}`} className="mb-1 z-10">
             <button
               className="pl-4 text-start w-[9.75rem]"
-              value={item.timeZone}
+              value={item.continent}
               onClick={() =>
                 setTimezone({
                   country: item.country,
-                  capital: item.capital,
-                  timeZone: item.timeZone,
+                  city: item.city,
+                  continent: item.continent,
                 })
               }
             >

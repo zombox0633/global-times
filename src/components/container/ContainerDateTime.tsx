@@ -1,4 +1,3 @@
-import { memo } from "react";
 import DisplayGlobalDate from "./DisplayGlobalDate";
 import DisplayGlobalTime from "./DisplayGlobalTime";
 import DisplayCountry from "./DisplayCountry";
@@ -13,6 +12,4 @@ function ContainerDateTime() {
   );
 }
 
-const MemoShowTimer = memo(ContainerDateTime);
-
-export default MemoShowTimer;
+export default ContainerDateTime;
