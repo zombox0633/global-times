@@ -1,10 +1,14 @@
 import { useState } from "react";
-import { useDateTimeContext } from "../context/TimeStampProvider";
-import { timezoneData } from "../constraint/TIMEZONE_DATA";
+import { useNavigate } from "react-router-dom";
+import { GlobalTimeType, timezoneData } from "../constraint/TIMEZONE_DATA";
 
 function DropDown() {
-  const { setTimezone } = useDateTimeContext();
+  const navigate = useNavigate();
   const [showDropDown, setShowDropDown] = useState<boolean>(false);
+
+  const handleChangeTimezone = (timezone: GlobalTimeType) => {
+    navigate(`/country/${timezone.country.toLowerCase()}`);
+  };
 
   return (
     <div>
@@ -23,7 +27,7 @@ function DropDown() {
       </button>
       <ul
         className={`absolute ${
-          showDropDown ? "top-20 sm:top-24" : "-top-[100%]"
+          showDropDown ? "top-20 sm:top-24 xl:top-28" : "-top-[100%]"
         } w-40 mt-4 bg-eerieBlack transition-all duration-1000 ease-in-out`}
       >
         {timezoneData.map((item, index) => (
@@ -31,13 +35,7 @@ function DropDown() {
             <button
               className="pl-4 text-start w-[9.75rem]"
               value={item.continent}
-              onClick={() =>
-                setTimezone({
-                  country: item.country,
-                  city: item.city,
-                  continent: item.continent,
-                })
-              }
+              onClick={() => handleChangeTimezone(item)}
             >
               {item.country}
             </button>

@@ -7,15 +7,19 @@ import BoxTemperature from "./BoxTemperature";
 import BoxTime from "./BoxTime";
 import useTime from "../../hook/useTime";
 import { BoxCountryDateTimePropsTypes } from "./BoxCountryDateTime.type";
+import { NavLink } from "react-router-dom";
 
 function BoxCountryDateTime({ timezoneData }: BoxCountryDateTimePropsTypes) {
   const { timeStamp } = useTime({ timezoneData });
-  const formattedDate = dayjs(timeStamp).format("DD/MM/YYYY");
+  const cityName = timezoneData.country;
+
+  const countryPath = `country/${cityName.toLowerCase()}`;
+  const formattedDate = timeStamp ? dayjs(timeStamp).format("DD/MM/YYYY") : "";
 
   return (
-    <div className=" relative w-72 h-48 rounded-3xl py-5 px-8 bg-night overflow-hidden shadow-xl">
-      <a href="" className="box_date_time__link">
-        <BoxTemperature city={timezoneData.city} />
+    <div className=" relative w-64 2xl:w-72 2xl:h-48 rounded-3xl py-5 px-8 bg-night overflow-hidden shadow-xl">
+      <NavLink to={countryPath} className="box_date_time__link">
+        <BoxTemperature city={cityName} />
         <div className="relative flex flex-col justify-between h-full z-20">
           <BoxLocation timezoneData={timezoneData} />
           <div>
@@ -23,7 +27,7 @@ function BoxCountryDateTime({ timezoneData }: BoxCountryDateTimePropsTypes) {
             <BoxDate formattedDate={formattedDate} />
           </div>
         </div>
-      </a>
+      </NavLink>
     </div>
   );
 }

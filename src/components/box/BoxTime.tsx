@@ -6,8 +6,8 @@ type BoxTimePropsType = {
 }
 
 function BoxTime({timeStamp}:BoxTimePropsType) {
-  const formattedTime = dayjs(timeStamp).format("hh:mm")
-  const formattedMeridiem = dayjs(timeStamp).format("A")
+  const formattedTime = timeStamp ? dayjs(timeStamp).format("hh:mm") : ""
+  const formattedMeridiem = timeStamp ? dayjs(timeStamp).format("A") : ""
 
   return (
     <div className=" flex justify-between w-[7.6rem] mt-4 mb-1">
