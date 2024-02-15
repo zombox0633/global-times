@@ -4,7 +4,7 @@ function DisplayCountry() {
   const { timezone } = useDateTimeContext();
 
   return (
-    <div className="flex justify-end mr-4">
+    <div className="flex justify-end">
       <h3>{timezone?.country}</h3>
     </div>
   );

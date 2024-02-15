@@ -23,7 +23,7 @@ export interface WeatherType {
   wind: WindDataType;
 }
 
-interface WeatherDataType {
+export interface WeatherDataType {
   feels_like: number;
   grnd_level: number;
   humidity: number;
@@ -34,16 +34,16 @@ interface WeatherDataType {
   temp_min: number;
 }
 
-interface CloudsDataType {
+export interface CloudsDataType {
   all: number;
 }
 
-interface CoordDataType {
+export interface CoordDataType {
   lat: number;
   lon: number;
 }
 
-interface SystemDataType {
+export interface SystemDataType {
   country: string;
   id: number;
   sunrise: number;
@@ -51,7 +51,7 @@ interface SystemDataType {
   type: number;
 }
 
-interface WindDataType {
+export interface WindDataType {
   deg: number;
   gust: number;
   speed: number;

@@ -7,7 +7,7 @@ function DisplayGlobalDate() {
   const formattedDate = timeStamp ? dayjs(timeStamp).format("DD/MM/YYYY") : "01/00/2000";
 
   return (
-    <div className="mt-1 ml-2">
+    <div className="mt-1">
       <h3>{formattedDate}</h3>
     </div>
   );
