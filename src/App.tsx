@@ -7,7 +7,7 @@ function App() {
   return (
     <TimeStampProvider>
       <Routes>
-        <Route path="/" index element={<HomePage />} />
+        <Route path="/" index element={<HomePage />} caseSensitive />
         <Route
           path="country/:countryPath"
           element={<DateTimeCountry />}
