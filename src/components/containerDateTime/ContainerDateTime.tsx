@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import DisplayGlobalDate from "./DisplayGlobalDate";
 import DisplayGlobalTime from "./DisplayGlobalTime";
 import DisplayCountry from "./DisplayCountry";
-import { useDateTimeContext } from "../../context/TimeStampProvider";
+import { useDateTimeContext } from "../../context/dateTime/DateTimeContext";
 import useFindTimezone from "../../hook/useFindTimezone";
 
 function ContainerDateTime() {

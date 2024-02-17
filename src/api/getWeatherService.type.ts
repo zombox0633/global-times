@@ -9,7 +9,7 @@ export interface WeatherType {
   coord: CoordDataType;
   dt: number;
   id: number;
-  main: WeatherDataType;
+  main: MainDataType;
   name: string;
   sys: SystemDataType;
   timezone: number;
@@ -23,7 +23,7 @@ export interface WeatherType {
   wind: WindDataType;
 }
 
-export interface WeatherDataType {
+export interface MainDataType {
   feels_like: number;
   grnd_level: number;
   humidity: number;

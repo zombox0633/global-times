@@ -7,34 +7,29 @@ type UseGetWeatherServicePropsType = {
 };
 
 function useGetWeatherService({ city }: UseGetWeatherServicePropsType) {
-  const [weatherData, setWeatherData] = useState<WeatherType | null>(
-    null
-  );
+  const [weatherData, setWeatherData] = useState<WeatherType | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const fetchData = useCallback(async () => {
     try {
       const [data, error] = await getWeatherService({ city });
       if (error) {
-        console.error(error);
+        setError(error);
+        return;
       }
 
       setWeatherData(data);
     } catch (error) {
-      console.error(error);
+      setError(error as string);
+      return;
     }
   }, [city]);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      fetchData();
-    }, 10800000);
-
     fetchData();
+  }, [fetchData, city]);
 
-    return () => clearInterval(intervalId);
-  }, [fetchData]);
-
-  return { weatherData };
+  return { weatherData, error };
 }
 
 export default useGetWeatherService;

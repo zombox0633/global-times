@@ -1,5 +1,5 @@
-import { createContext } from "react";
-import { GlobalTimeType } from "../constraint/TIMEZONE_DATA";
+import { createContext, useContext } from "react";
+import { GlobalTimeType } from "../../constraint/TIMEZONE_DATA";
 
 export type TimeStampContextType = {
   timeStamp: string | null;
@@ -12,3 +12,6 @@ export const TimeStampContext = createContext<TimeStampContextType>({
   timezone: null,
   setTimezone: () => {},
 });
+
+export const useDateTimeContext = () =>
+  useContext<TimeStampContextType>(TimeStampContext);

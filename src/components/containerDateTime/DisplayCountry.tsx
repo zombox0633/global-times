@@ -1,4 +1,4 @@
-import { useDateTimeContext } from "../../context/TimeStampProvider";
+import { useDateTimeContext } from "../../context/dateTime/DateTimeContext";
 
 function DisplayCountry() {
   const { timezone } = useDateTimeContext();

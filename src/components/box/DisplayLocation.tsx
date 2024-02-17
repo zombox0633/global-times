@@ -1,6 +1,6 @@
 import { BoxCountryDateTimePropsTypes } from "./BoxCountryDateTime.type";
 
-function BoxLocation({timezoneData}:BoxCountryDateTimePropsTypes) {
+function DisplayLocation({timezoneData}:BoxCountryDateTimePropsTypes) {
   return (
     <div>
       <p className="text-4xl">{timezoneData.country}</p>
@@ -9,4 +9,4 @@ function BoxLocation({timezoneData}:BoxCountryDateTimePropsTypes) {
   );
 }
 
-export default BoxLocation;
+export default DisplayLocation;

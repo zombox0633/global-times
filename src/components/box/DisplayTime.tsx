@@ -1,11 +1,11 @@
 import { memo } from "react";
 import dayjs from "dayjs";
 
-type BoxTimePropsType = {
+type DisplayTimePropsType = {
   timeStamp: string
 }
 
-function BoxTime({timeStamp}:BoxTimePropsType) {
+function DisplayTime({timeStamp}:DisplayTimePropsType) {
   const formattedTime = timeStamp ? dayjs(timeStamp).format("hh:mm") : ""
   const formattedMeridiem = timeStamp ? dayjs(timeStamp).format("A") : ""
 
@@ -17,6 +17,6 @@ function BoxTime({timeStamp}:BoxTimePropsType) {
   );
 }
 
-const MemoBoxTime = memo(BoxTime)
+const MemoBoxDisplayTime = memo(DisplayTime)
 
-export default MemoBoxTime;
+export default MemoBoxDisplayTime;

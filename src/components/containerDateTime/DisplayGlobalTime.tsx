@@ -1,6 +1,6 @@
 import { memo } from "react";
 import dayjs from "dayjs";
-import { useDateTimeContext } from "../../context/TimeStampProvider";
+import { useDateTimeContext } from "../../context/dateTime/DateTimeContext";
 
 function DisplayGlobalTime() {
   const { timeStamp } = useDateTimeContext();

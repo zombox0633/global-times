@@ -20,7 +20,7 @@ function DropDown() {
         <span
           className={`material-symbols-outlined  ${
             showDropDown ? "rotate-0" : "rotate-180"
-          } my-1 ml-1 transition-all duration-500 ease-in-out`}
+          } my-1 ml-1`}
         >
           expand_more
         </span>
