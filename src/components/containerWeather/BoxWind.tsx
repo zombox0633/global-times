@@ -6,7 +6,7 @@ function BoxWind() {
   const { timezone } = useDateTimeContext();
   const { weatherRecords } = useWeatherContext();
 
-  const cityData: string = timezone?.city ?? "";
+  const cityData: string = timezone?.city ?? " ";
   const cityWeather = weatherRecords.find((item) => item.name === cityData);
   const windData = cityWeather?.wind.speed ?? 0;
 
