@@ -10,16 +10,16 @@ import { useWeatherContext } from "../../context/weather/WeatherContext";
 function ContainerWeather() {
   const { timezone } = useDateTimeContext();
   const { addCity } = useWeatherContext();
-  const cityData = timezone?.city;
+  const cityName = timezone?.city;
 
   useEffect(() => {
-    if (cityData) {
-      addCity(cityData);
+    if (cityName) {
+      addCity(cityName);
     }
-  }, [cityData, addCity]);
+  }, [cityName, addCity]);
 
   return (
-    <div className=" flex items-center justify-between h-full w-full pr-20">
+    <div className=" flex items-center sm:justify-between w-full md:max-w-[40rem] lg:max-w-[48rem] xl:max-w-[60rem] h-full">
       <BoxWeather />
       <BoxTemperature />
       <BoxHumidity />

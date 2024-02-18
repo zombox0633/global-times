@@ -6,21 +6,21 @@ function BoxWind() {
   const { timezone } = useDateTimeContext();
   const { weatherRecords } = useWeatherContext();
 
-  const cityData: string = timezone?.city ?? " ";
+  const cityData: string = timezone?.city ?? "";
   const cityWeather = weatherRecords.find((item) => item.name === cityData);
   const windData = cityWeather?.wind.speed ?? 0;
 
   const windValue = useBoxWind({ windData });
   return (
     <div
-      className={`flex flex-col justify-between w-40 h-36 p-4 rounded-2xl ${windValue.color} shadow-xl`}
+      className={`${windValue.color} box__weather_df box__weather_flex`}
     >
-      <p className="text-2xl">Wind</p>
+      <p className="text-box__weather_head">Wind</p>
       <div>
-        <p className=" text-3xl text-end">
-          {windValue.windSpeed.toFixed(2)}km/h
+        <p className="box__weather_result">
+          {windValue.windSpeed.toFixed(1)}km/h
         </p>
-        <p className="text-end">{windValue.status}</p>
+        <p className="box__weather_sub_result">{windValue.status}</p>
       </div>
     </div>
   );

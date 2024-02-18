@@ -11,7 +11,7 @@ function DisplayGlobalTime() {
   const formattedMeridiem = timeStamp ? dayjs(timeStamp).format("A") : "AM";
 
   return (
-    <div className=" flex justify-between w-[13.5rem] sm:w-[21rem] lg:w-[27rem] xl:w-[28rem] 2xl:w-[37.5rem] my-2">
+    <div className=" flex justify-between w-[13.5rem] sm:w-[21rem] lg:w-[28rem] xl:w-[28rem] 2xl:w-[37.5rem] my-2">
       <h1>{formattedTime}</h1>
       <h1>{formattedMeridiem}</h1>
     </div>

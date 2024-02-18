@@ -5,6 +5,7 @@ import useBoxHumidity from "../../hook/useBoxHumidity";
 function BoxHumidity() {
   const { timezone } = useDateTimeContext();
   const { weatherRecords } = useWeatherContext();
+  
   const cityData: string = timezone?.city ?? "";
   
   const cityWeather = weatherRecords.find((item) => item.name === cityData);
@@ -14,12 +15,12 @@ function BoxHumidity() {
 
   return (
     <div
-      className={`flex flex-col justify-between w-40 h-36 p-4 rounded-2xl ${humidityValue.color} shadow-xl`}
+      className={`${humidityValue.color} box__weather_df box__weather_flex`}
     >
-      <p className="text-2xl">Humidity</p>
+      <p className="box__weather_head">Humidity</p>
       <div>
-        <p className=" text-3xl text-end">{humidityData.toFixed(0)}&#37;</p>
-        <p className=" text-sm text-end">{humidityValue.status}</p>
+        <p className="box__weather_result">{humidityData.toFixed(0)}&#37;</p>
+        <p className="box__weather_sub_result">{humidityValue.status}</p>
       </div>
     </div>
   );

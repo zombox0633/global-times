@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { TimeStampProvider } from "./context/dateTime/TimeStampProvider";
 import { WeatherProvider } from "./context/weather/WeatherProvider";
 import HomePage from "./pages/HomePage";
-import DateTimeCountry from "./pages/DateTimeCountry";
+import DateTimeCountryPage from "./pages/DateTimeCountryPage";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
           <Route path="/" index element={<HomePage />} caseSensitive />
           <Route
             path="country/:countryPath"
-            element={<DateTimeCountry />}
+            element={<DateTimeCountryPage />}
             caseSensitive
           />
         </Routes>

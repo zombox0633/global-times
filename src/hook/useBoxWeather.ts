@@ -47,6 +47,7 @@ function useBoxWeather({
         color = "bg-[#35637D]";
         break;
       case "rain":
+      case "moderate rain":
         icon = "rainy";
         color = "bg-[#4E6881]";
         break;
@@ -63,6 +64,7 @@ function useBoxWeather({
         color = "bg-[#7C959D]";
         break;
       case "dust":
+      case "haze":
         icon = "mist";
         color = "bg-[#B2996E]";
         break;

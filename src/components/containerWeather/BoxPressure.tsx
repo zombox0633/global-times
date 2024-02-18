@@ -5,8 +5,6 @@ import useBoxPressure from "../../hook/useBoxPressure";
 function BoxPressure() {
   const { timezone } = useDateTimeContext();
   const { weatherRecords } = useWeatherContext();
-
-  console.log(weatherRecords);
   
   const cityData: string = timezone?.city ?? "";
   const cityWeather = weatherRecords.find((item) => item.name === cityData);
@@ -16,12 +14,12 @@ function BoxPressure() {
 
   return (
     <div
-      className={`flex flex-col justify-between w-40 h-36 p-4 rounded-2xl ${pressureValue.color} shadow-xl`}
+      className={`${pressureValue.color} box__weather_df box__weather_flex`}
     >
-      <p className="text-2xl">Pressure</p>
+      <p className="box__weather_head">Pressure</p>
       <div>
-        <p className="text-3xl text-end">{pressureData.toFixed(0)}hPa</p>
-        <p className="text-end">{pressureValue.status}</p>
+        <p className="box__weather_result">{pressureData.toFixed(0)}hPa</p>
+        <p className="box__weather_sub_result">{pressureValue.status}</p>
       </div>
     </div>
   );

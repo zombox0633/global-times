@@ -44,10 +44,30 @@
 
   /* BoxCountryDateTime */
   .box_date_time__link:hover .box_date_time__bg {
-    @apply scale-[10]; 
+    @apply scale-[10];
   }
 
   .box_date_time__bg {
     @apply transition-all duration-500 ease-in;
+  }
+
+  .box__weather_df {
+    @apply relative w-28 lg:w-36 2xl:w-40 h-36 rounded-2xl shadow-xl overflow-hidden z-0;
+  }
+
+  .box__weather_flex {
+    @apply flex flex-col justify-between p-4
+  }
+
+  .box__weather_head{
+    @apply text-xl lg:text-2xl
+  }
+
+  .box__weather_result{
+    @apply text-xl lg:text-3xl text-end
+  }
+
+  .box__weather_sub_result{
+    @apply text-xs lg:text-sm text-end
   }
 }

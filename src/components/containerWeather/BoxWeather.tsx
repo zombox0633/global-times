@@ -13,10 +13,10 @@ function BoxWeather() {
   const weatherValue = useBoxWeather({ weatherData });
 
   return (
-    <div className="relative w-40 h-36 rounded-2xl bg-black shadow-xl overflow-hidden z-0">
-      <div className=" flex flex-col w-40 h-36 justify-between p-4 ">
-        <p className="text-2xl z-50">Weather</p>
-        <p className="text-3xl text-end z-50">{weatherData}</p>
+    <div className="box__weather_df bg-black">
+      <div className=" flex flex-col w-28 lg:w-36 2xl:w-40 h-36 justify-between p-4 "> 
+        <p className="box__weather_head z-50">Weather</p>
+        <p className="box__weather_result z-50">{weatherData}</p>
       </div>
       <div
         className={`absolute inset-0 w-full h-full ${weatherValue.color} opacity-80 z-10`}
