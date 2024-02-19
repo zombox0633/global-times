@@ -3,6 +3,7 @@ import { TimeStampProvider } from "./context/dateTime/TimeStampProvider";
 import { WeatherProvider } from "./context/weather/WeatherProvider";
 import HomePage from "./pages/HomePage";
 import DateTimeCountryPage from "./pages/DateTimeCountryPage";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             element={<DateTimeCountryPage />}
             caseSensitive
           />
+          <Route path="*" index element={<ErrorPage />} caseSensitive />
         </Routes>
       </WeatherProvider>
     </TimeStampProvider>
