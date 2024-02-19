@@ -13,7 +13,7 @@ import { BoxCountryDateTimePropsTypes } from "./BoxCountryDateTime.type";
 function BoxCountryDateTime({ timezoneData }: BoxCountryDateTimePropsTypes) {
   const { timeStamp } = useTime({ timezoneData });
   const cityName = timezoneData.city.toLowerCase();
-  const countryPath = `country/${cityName.toLowerCase()}`;
+  const countryPath = `country/${timezoneData.country.toLowerCase()}`;
   const formattedDate = timeStamp ? dayjs(timeStamp).format("DD/MM/YYYY") : "";
 
   const { addCity } = useWeatherContext();
