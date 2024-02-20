@@ -8,10 +8,9 @@ export type UseTimePropsType = {
 function useTime({ timezoneData }: UseTimePropsType) {
   const [timeStamp, setTimeStamp] = useState<string>("");
 
-  const formattedTimeZone = `${timezoneData.continent}/${timezoneData.city}`.replaceAll(" ","_");
-
   useEffect(() => {
     const timer = setInterval(() => {
+      const formattedTimeZone = `${timezoneData.continent}/${timezoneData.city}`.replaceAll(" ", "_");
       const localTime = new Date().toLocaleString("en-US", {
         timeZone: formattedTimeZone,
       });
@@ -20,7 +19,7 @@ function useTime({ timezoneData }: UseTimePropsType) {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [formattedTimeZone]);
+  }, [timezoneData]);
 
   return {
     timeStamp,
