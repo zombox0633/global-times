@@ -4,14 +4,14 @@ import { GlobalTimeType } from "../../constraint/TIMEZONE_DATA";
 export type TimeStampContextType = {
   timeStamp: string | null;
   timezone: GlobalTimeType | null;
-  setTimezone: React.Dispatch<React.SetStateAction<GlobalTimeType>>;
+  findTimezone: (countryPath: string) => void
 };
 
 export const TimeStampContext = createContext<TimeStampContextType>({
   timeStamp: null,
   timezone: null,
-  setTimezone: () => {},
+  findTimezone: () => {},
 });
 
-export const useDateTimeContext = () =>
+export const useTimeStampContext = () =>
   useContext<TimeStampContextType>(TimeStampContext);

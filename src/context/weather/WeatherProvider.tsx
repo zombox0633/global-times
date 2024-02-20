@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import { ContextProviderPropsType } from "../context.type";
 import { WeatherContext } from "./WeatherContext";
 import getWeatherService from "../../api/getWeatherService";
@@ -25,9 +25,15 @@ export const WeatherProvider = ({ children }: ContextProviderPropsType) => {
     [requestedCitiesRef]
   );
 
+  const value = useMemo(
+    () => ({
+      weatherRecords,
+      addCity,
+    }),
+    [weatherRecords, addCity]
+  );
+
   return (
-    <WeatherContext.Provider value={{ weatherRecords, addCity }}>
-      {children}
-    </WeatherContext.Provider>
+    <WeatherContext.Provider value={value}>{children}</WeatherContext.Provider>
   );
 };
