@@ -1,22 +1,19 @@
-import { useDateTimeContext } from "../../context/dateTime/DateTimeContext";
-import { useWeatherContext } from "../../context/weather/WeatherContext";
-import useBoxHumidity from "../../hook/useBoxHumidity";
+import { UseBoxHumidityType } from "../../hook/useBoxHumidity";
 
-function BoxHumidity() {
-  const { timezone } = useDateTimeContext();
-  const { weatherRecords } = useWeatherContext();
-  
-  const cityData: string = timezone?.city ?? "";
-  
-  const cityWeather = weatherRecords.find((item) => item.name === cityData);
-  const humidityData = cityWeather?.main.humidity ?? 0;
-  
-  const humidityValue =  useBoxHumidity({ humidityData });
+type BoxHumidityDataPropsType = {
+  humidityData: number;
+  humidityValue: UseBoxHumidityType;
+};
+
+type BoxHumidityPropsType = {
+  humidity: BoxHumidityDataPropsType;
+};
+
+function BoxHumidity({ humidity }: BoxHumidityPropsType) {
+  const { humidityData, humidityValue } = humidity;
 
   return (
-    <div
-      className={`${humidityValue.color} box__weather_df box__weather_flex`}
-    >
+    <div className={`${humidityValue.color} box__weather_df box__weather_flex`}>
       <p className="box__weather_head">Humidity</p>
       <div>
         <p className="box__weather_result">{humidityData.toFixed(0)}&#37;</p>

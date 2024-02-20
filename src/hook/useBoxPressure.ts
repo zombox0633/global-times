@@ -1,10 +1,17 @@
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 
 type UseBoxPressurePropsType = {
   pressureData: number;
 };
 
-type UseBoxPressure = {
+type PressureRangesType = {
+  max?: number;
+  min?: number;
+  status: string;
+  color: string;
+};
+
+export type UseBoxPressure = {
   status: string;
   color: string;
 };
@@ -12,35 +19,28 @@ type UseBoxPressure = {
 function useBoxPressure({
   pressureData,
 }: UseBoxPressurePropsType): UseBoxPressure {
-  const [pressureValue, setPressureValue] = useState<UseBoxPressure>({
-    status: "",
-    color: "bg-black",
-  });
+  const pressureValue = useMemo(() => {
+    const pressureRanges: PressureRangesType[] = [
+      { max: 1000, status: "Low Pressure", color: "bg-[#9E2A2B]" },
+      {
+        min: 1000,
+        max: 1020,
+        status: "Normal Pressure",
+        color: "bg-[#E09F3E]",
+      },
+      { min: 1020, status: "High Pressure", color: "bg-[#ADC178]" },
+    ];
 
-  useEffect(() => {
-    let status = "";
-    let color = "";
+    const foundRange = pressureRanges.find(
+      ({ min, max }) =>
+        pressureData >= (min ?? -Infinity) && pressureData <= (max ?? Infinity)
+    );
+    const result: UseBoxPressure = {
+      status: foundRange?.status ?? "",
+      color: foundRange?.color ?? "bg-black",
+    };
 
-    switch (true) {
-      case pressureData < 1000:
-        status = "Low Pressure";
-        color = "bg-[#9E2A2B]";
-        break;
-      case pressureData >= 1000 && pressureData <= 1020:
-        status = "Normal Pressure";
-        color = "bg-[#E09F3E]";
-        break;
-      case pressureData > 1020:
-        status = "High Pressure";
-        color = "bg-[#ADC178]";
-        break;
-      default:
-        status = "";
-        color = "bg-black";
-        break;
-    }
-
-    setPressureValue({ status, color });
+    return result;
   }, [pressureData]);
 
   return pressureValue;

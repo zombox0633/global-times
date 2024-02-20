@@ -1,18 +1,16 @@
-import useTemperatureColor from "../../hook/useTemperatureColor";
-import { useWeatherContext } from "../../context/weather/WeatherContext";
-import { useDateTimeContext } from "../../context/dateTime/DateTimeContext";
+type BoxTemperatureDataPropsType = {
+  tempData: number;
+  minTemp?: string;
+  maxTemp?: string;
+  tempColor: string;
+};
 
-function BoxTemperature() {
-  const { timezone } = useDateTimeContext();
-  const { weatherRecords } = useWeatherContext();
+type BoxTemperaturePropsType = {
+  temperatureData: BoxTemperatureDataPropsType;
+};
 
-  const cityData: string = timezone?.city ?? "";
-  const cityWeather = weatherRecords.find((item) => item.name === cityData);
-  const tempData = cityWeather?.main.temp ?? 0;
-  const minTemp = cityWeather?.main.temp_min.toFixed(1);
-  const maxTemp = cityWeather?.main.temp_max.toFixed(1);
-
-  const tempColor = useTemperatureColor({ tempData });
+function BoxTemperature({ temperatureData: temperature }: BoxTemperaturePropsType) {
+  const { tempData, minTemp, maxTemp, tempColor } = temperature;
 
   return (
     <div className={`${tempColor} box__weather_df box__weather_flex`}>

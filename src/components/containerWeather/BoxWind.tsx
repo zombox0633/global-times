@@ -1,16 +1,11 @@
-import { useDateTimeContext } from "../../context/dateTime/DateTimeContext";
-import { useWeatherContext } from "../../context/weather/WeatherContext";
-import useBoxWind from "../../hook/useBoxWind";
+import { UseBoxWindType } from "../../hook/useBoxWind";
 
-function BoxWind() {
-  const { timezone } = useDateTimeContext();
-  const { weatherRecords } = useWeatherContext();
+type BoxWindPropsType = {
+  windValue: UseBoxWindType
+}
 
-  const cityData: string = timezone?.city ?? "";
-  const cityWeather = weatherRecords.find((item) => item.name === cityData);
-  const windData = cityWeather?.wind.speed ?? 0;
+function BoxWind({windValue}:BoxWindPropsType) {
 
-  const windValue = useBoxWind({ windData });
   return (
     <div
       className={`${windValue.color} box__weather_df box__weather_flex`}

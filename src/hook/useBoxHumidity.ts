@@ -1,10 +1,17 @@
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 
 type UseBoxHumidityPropsType = {
   humidityData: number;
 };
 
-type UseBoxHumidityType = {
+type HumidityRangesType = {
+  max?: number;
+  min?: number;
+  status: string;
+  color: string;
+};
+
+export type UseBoxHumidityType = {
   status: string;
   color: string;
 };
@@ -12,39 +19,24 @@ type UseBoxHumidityType = {
 function useBoxHumidity({
   humidityData,
 }: UseBoxHumidityPropsType): UseBoxHumidityType {
-  const [humidityValue, setHumidityValue] = useState<UseBoxHumidityType>({
-    status: "",
-    color: "bg-black",
-  });
+  const humidityValue = useMemo(() => {
+    const humidityRanges: HumidityRangesType[] = [
+      { max: 30, status: "Very Dry", color: "bg-[#D6967A]" },
+      { min: 30, max: 60, status: "Comfortable", color: "bg-[#94D2BD]" },
+      { min: 60, max: 80, status: "High Humidity", color: "bg-[#0A9396]" },
+      { min: 80, status: "Very High Humidity", color: "bg-[#005F73]" },
+    ];
 
-  useEffect(() => {
-    let status = "";
-    let color = "";
+    const foundRange = humidityRanges.find(
+      ({ min, max }) =>
+        humidityData >= (min ?? -Infinity) && humidityData <= (max ?? Infinity)
+    );
+    const result: UseBoxHumidityType = {
+      status: foundRange?.status ?? "",
+      color: foundRange?.color ?? "bg-black",
+    };
 
-    switch (true) {
-      case humidityData <= 30:
-        status = "Very Dry";
-        color = "bg-[#D6967A]";
-        break;
-      case humidityData > 30 && humidityData <= 60:
-        status = "Comfortable";
-        color = "bg-[#94D2BD]";
-        break;
-      case humidityData > 60 && humidityData <= 80:
-        status = "High Humidity";
-        color = "bg-[#0A9396]";
-        break;
-      case humidityData > 80:
-        status = "Very High Humidity";
-        color = "bg-[#005F73]";
-        break;
-      default:
-        status = "";
-        color = "bg-black";
-        break;
-    }
-
-    setHumidityValue({ status, color });
+    return result;
   }, [humidityData]);
 
   return humidityValue;
