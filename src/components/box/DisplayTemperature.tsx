@@ -1,20 +1,14 @@
 import { memo } from "react";
-import useTemperatureColor from "../../hook/useTemperatureColor";
-import { useWeatherContext } from "../../context/weather/WeatherContext";
 
 type DisplayTemperaturePropsType = {
-  city: string;
+  tempData: number;
+  tempColor: string;
 };
 
-function DisplayTemperature({ city }: DisplayTemperaturePropsType) {
-  const { weatherRecords } = useWeatherContext();
-
-  const cityWeather = weatherRecords.find(
-    (item) => item.name.toLowerCase() === city.toLowerCase()
-  );
-  const tempData = cityWeather?.main.temp ?? 0;
-  const tempColor = useTemperatureColor({ tempData });
-
+function DisplayTemperature({
+  tempData,
+  tempColor,
+}: DisplayTemperaturePropsType) {
   return (
     <div>
       <div

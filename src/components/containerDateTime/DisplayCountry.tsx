@@ -1,8 +1,10 @@
-import { useDateTimeContext } from "../../context/dateTime/DateTimeContext";
+import { GlobalTimeType } from "../../constraint/TIMEZONE_DATA";
 
-function DisplayCountry() {
-  const { timezone } = useDateTimeContext();
+type DisplayCountryPropsType = {
+  timezone: GlobalTimeType | null;
+};
 
+function DisplayCountry({ timezone }: DisplayCountryPropsType) {
   return (
     <div className="flex justify-end">
       <h3>{timezone?.country}</h3>

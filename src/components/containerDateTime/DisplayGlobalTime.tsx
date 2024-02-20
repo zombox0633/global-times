@@ -1,10 +1,11 @@
 import { memo } from "react";
 import dayjs from "dayjs";
-import { useDateTimeContext } from "../../context/dateTime/DateTimeContext";
 
-function DisplayGlobalTime() {
-  const { timeStamp } = useDateTimeContext();
-  
+type DisplayGlobalTimePropsType = {
+  timeStamp: string | null;
+};
+
+function DisplayGlobalTime({ timeStamp }: DisplayGlobalTimePropsType) {
   const formattedTime = timeStamp
     ? dayjs(timeStamp).format("hh:mm:ss")
     : "00:00:00";
