@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { TimeStampProvider } from "./context/dateTime/TimeStampProvider";
 import { WeatherProvider } from "./context/weather/WeatherProvider";
 import HomePage from "./pages/HomePage";
@@ -11,6 +11,10 @@ function App() {
       <WeatherProvider>
         <Routes>
           <Route path="/" index element={<HomePage />} caseSensitive />
+          <Route
+            path="country"
+            element={<Navigate to="country/bangkok" replace />}
+          />
           <Route
             path="country/:countryPath"
             element={<DateTimeCountryPage />}
