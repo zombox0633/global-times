@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import DropDown from "../components/DropDown";
+import SelectCountry from "../components/SelectCountry";
 import DisplayDateTime from "../components/containerDateTime/DisplayDateTime";
 import DisplayWeather from "../components/containerWeather/DisplayWeather";
 import { useTimeStampContext } from "../context/dateTime/TimeStampContext";
@@ -23,7 +23,7 @@ function DateTimeCountryPage() {
     <div className='h-dvh w-dvw overflow-hidden p-4 sm:p-8 md:p-12'>
       <div className='grid h-[90dvh] grid-cols-6 grid-rows-3 sm:grid-cols-8'>
         <div className='col-start-1 row-start-1 h-20 sm:col-end-2'>
-          <DropDown />
+          <SelectCountry />
         </div>
         <div
           className=' col-start-2 col-end-9 row-start-2 row-end-3 flex justify-center sm:col-start-3 sm:justify-end

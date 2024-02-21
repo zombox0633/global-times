@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import clsx from "clsx";
 import { GlobalTimeType, timezoneData } from "../constraint/TIMEZONE_DATA";
 
-function DropDown() {
+function SelectCountry() {
   const navigate = useNavigate();
-  const [showDropDown, setShowDropDown] = useState<boolean>(false);
+  const [showSelectCountry, setShowSelectCountry] = useState<boolean>(false);
 
   const handleChangeTimezone = (timezone: GlobalTimeType) => {
     navigate(`/country/${timezone.country.toLowerCase()}`);
@@ -15,14 +15,14 @@ function DropDown() {
     <div>
       <button
         type='button'
-        onClick={() => setShowDropDown((prev) => !prev)}
+        onClick={() => setShowSelectCountry((prev) => !prev)}
         className='focus__df relative z-20 flex w-40 items-center justify-center pl-4'
       >
         TimeZone
         <span
           className={clsx("material-symbols-outlined my-1 ml-1", {
-            " rotate-0": showDropDown,
-            "rotate-180": !showDropDown,
+            " rotate-0": showSelectCountry,
+            "rotate-180": !showSelectCountry,
           })}
         >
           expand_more
@@ -32,8 +32,8 @@ function DropDown() {
         className={clsx(
           "absolute mt-4 w-40 bg-eerieBlack transition-all duration-1000 ease-in-out",
           {
-            "top-20 sm:top-24 xl:top-28": showDropDown,
-            "-top-[100%]": !showDropDown,
+            "top-20 sm:top-24 xl:top-28": showSelectCountry,
+            "-top-[100%]": !showSelectCountry,
           },
         )}
       >
@@ -54,4 +54,4 @@ function DropDown() {
   );
 }
 
-export default DropDown;
+export default SelectCountry;
