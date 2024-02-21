@@ -14,10 +14,10 @@ function BoxTemperature({ temperatureData: temperature }: BoxTemperaturePropsTyp
 
   return (
     <div className={`${tempColor} box__weather_df box__weather_flex`}>
-      <p className="box__weather_head">Temperature</p>
+      <p className='box__weather_head'>Temperature</p>
       <div>
-        <p className="box__weather_result">{tempData.toFixed(1)}&deg;C</p>
-        <p className="box__weather_sub_result">
+        <p className='box__weather_result'>{tempData.toFixed(1)}&deg;C</p>
+        <p className='box__weather_sub_result'>
           {minTemp}&deg;C - {maxTemp}&deg;C
         </p>
       </div>

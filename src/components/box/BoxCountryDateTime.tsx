@@ -24,11 +24,11 @@ function BoxCountryDateTime({ timezoneData }: BoxCountryDateTimePropsTypes) {
   }, [cityName, addCity]);
 
   //DisplayTemperature
-  const cityWeather = weatherRecords.find(
-    (item) => item.name.toLowerCase() === cityName
-  );
+  const cityWeather = weatherRecords.find((item) => item.name.toLowerCase() === cityName);
   const tempData = cityWeather?.main.temp ?? 0;
-  const tempColor = useTemperatureColor({ tempData });
+  const tempColor = useTemperatureColor({
+    tempData,
+  });
 
   //NavLink
   const countryPath = `country/${timezoneData.country.toLowerCase()}`;
@@ -37,10 +37,10 @@ function BoxCountryDateTime({ timezoneData }: BoxCountryDateTimePropsTypes) {
   const formattedDate = timeStamp ? dayjs(timeStamp).format("DD/MM/YYYY") : "";
 
   return (
-    <div className=" relative w-64 2xl:w-72 2xl:h-48 rounded-3xl py-5 px-8 bg-night overflow-hidden shadow-xl">
-      <NavLink to={countryPath} className="box_date_time__link">
+    <div className=' relative w-64 overflow-hidden rounded-3xl bg-night px-8 py-5 shadow-xl 2xl:h-48 2xl:w-72'>
+      <NavLink to={countryPath} className='box_date_time__link'>
         <DisplayTemperature tempData={tempData} tempColor={tempColor} />
-        <div className="relative flex flex-col justify-between h-full z-20">
+        <div className='relative z-20 flex h-full flex-col justify-between'>
           <DisplayLocation timezoneData={timezoneData} />
           <div>
             <DisplayTime timeStamp={timeStamp} />

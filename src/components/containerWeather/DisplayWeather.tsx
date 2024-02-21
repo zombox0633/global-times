@@ -17,34 +17,47 @@ function DisplayWeather() {
   const cityName = timezone?.city;
   const cityWeather = weatherRecords.find((item) => item.name === cityName);
   console.log(weatherRecords);
-  
+
   //BoxWeather
   const weatherData = cityWeather?.weather[0].description ?? "";
-  const weatherValue = useBoxWeather({ weatherData });
+  const weatherValue = useBoxWeather({
+    weatherData,
+  });
 
   //BoxTemperature
   const tempData = cityWeather?.main.temp ?? 0;
   const minTemp = cityWeather?.main.temp_min.toFixed(1);
   const maxTemp = cityWeather?.main.temp_max.toFixed(1);
-  const tempColor = useTemperatureColor({ tempData });
+  const tempColor = useTemperatureColor({
+    tempData,
+  });
 
   //BoxHumidity
   const humidityData = cityWeather?.main.humidity ?? 0;
-  const humidityValue = useBoxHumidity({ humidityData });
+  const humidityValue = useBoxHumidity({
+    humidityData,
+  });
 
   //BoxPressure
   const pressureData = cityWeather?.main.pressure ?? 0;
-  const pressureValue = useBoxPressure({ pressureData });
+  const pressureValue = useBoxPressure({
+    pressureData,
+  });
 
   //BoxWind
   const windData = cityWeather?.wind.speed ?? 0;
   const windValue = useBoxWind({ windData });
 
   return (
-    <div className=" flex items-center sm:justify-between w-full md:max-w-[40rem] lg:max-w-[48rem] xl:max-w-[60rem] h-full">
+    <div className=' flex h-full w-full items-center sm:justify-between md:max-w-[40rem] lg:max-w-[48rem] xl:max-w-[60rem]'>
       <BoxWeather weatherValue={weatherValue} weatherData={weatherData} />
       <BoxTemperature
-        temperatureData={{ tempData, minTemp, maxTemp, tempColor }}
+        temperatureData={{
+          tempData,
+          minTemp,
+          maxTemp,
+          tempColor,
+        }}
       />
       <BoxHumidity humidity={{ humidityData, humidityValue }} />
       <BoxPressure pressure={{ pressureData, pressureValue }} />

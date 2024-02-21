@@ -5,17 +5,14 @@ type DisplayTemperaturePropsType = {
   tempColor: string;
 };
 
-function DisplayTemperature({
-  tempData,
-  tempColor,
-}: DisplayTemperaturePropsType) {
+function DisplayTemperature({ tempData, tempColor }: DisplayTemperaturePropsType) {
   return (
     <div>
       <div
-        className={`box_date_time__bg absolute -top-12 -right-12 w-36 h-36 rounded-full ${tempColor} z-10`}
+        className={`box_date_time__bg absolute -right-12 -top-12 h-36 w-36 rounded-full ${tempColor} z-10`}
       />
-      <div className=" absolute top-8 right-4 z-20">
-        <p className=" text-xl">{tempData.toFixed(1)}&deg;C</p>
+      <div className=' absolute right-4 top-8 z-20'>
+        <p className=' text-xl'>{tempData.toFixed(1)}&deg;C</p>
       </div>
     </div>
   );

@@ -13,8 +13,7 @@ export const onHandleErrorFromAPI = (error: unknown): [null, string] => {
       return [null, statusMessageError[status].message];
     } else {
       const defaultMessage = "An unexpected error occurred. Please try again later";
-      const responseMessage =
-        error.response?.data.error?.message ?? defaultMessage;
+      const responseMessage = error.response?.data.error?.message ?? defaultMessage;
       return [null, responseMessage];
     }
   } else {

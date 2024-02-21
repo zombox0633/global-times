@@ -14,10 +14,10 @@ function BoxPressure({ pressure }: BoxPressurePropsType) {
 
   return (
     <div className={`${pressureValue.color} box__weather_df box__weather_flex`}>
-      <p className="box__weather_head">Pressure</p>
+      <p className='box__weather_head'>Pressure</p>
       <div>
-        <p className="box__weather_result">{pressureData.toFixed(0)}hPa</p>
-        <p className="box__weather_sub_result">{pressureValue.status}</p>
+        <p className='box__weather_result'>{pressureData.toFixed(0)}hPa</p>
+        <p className='box__weather_sub_result'>{pressureValue.status}</p>
       </div>
     </div>
   );

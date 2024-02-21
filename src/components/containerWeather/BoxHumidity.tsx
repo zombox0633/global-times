@@ -14,10 +14,10 @@ function BoxHumidity({ humidity }: BoxHumidityPropsType) {
 
   return (
     <div className={`${humidityValue.color} box__weather_df box__weather_flex`}>
-      <p className="box__weather_head">Humidity</p>
+      <p className='box__weather_head'>Humidity</p>
       <div>
-        <p className="box__weather_result">{humidityData.toFixed(0)}&#37;</p>
-        <p className="box__weather_sub_result">{humidityValue.status}</p>
+        <p className='box__weather_result'>{humidityData.toFixed(0)}&#37;</p>
+        <p className='box__weather_sub_result'>{humidityValue.status}</p>
       </div>
     </div>
   );

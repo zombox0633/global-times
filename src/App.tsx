@@ -10,17 +10,10 @@ function App() {
     <TimeStampProvider>
       <WeatherProvider>
         <Routes>
-          <Route path="/" index element={<HomePage />} caseSensitive />
-          <Route
-            path="country"
-            element={<Navigate to="country/bangkok" replace />}
-          />
-          <Route
-            path="country/:countryPath"
-            element={<DateTimeCountryPage />}
-            caseSensitive
-          />
-          <Route path="*" index element={<ErrorPage />} caseSensitive />
+          <Route path='/' index element={<HomePage />} caseSensitive />
+          <Route path='country' element={<Navigate to='country/bangkok' replace />} />
+          <Route path='country/:countryPath' element={<DateTimeCountryPage />} caseSensitive />
+          <Route path='*' index element={<ErrorPage />} caseSensitive />
         </Routes>
       </WeatherProvider>
     </TimeStampProvider>

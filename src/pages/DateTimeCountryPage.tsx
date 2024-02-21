@@ -20,18 +20,18 @@ function DateTimeCountryPage() {
   }, [cityName, addCity]);
 
   return (
-    <div className="w-dvw h-dvh p-4 sm:p-8 md:p-12 overflow-hidden">
-      <div className="grid grid-rows-3 grid-cols-6 sm:grid-cols-8 h-[90dvh]">
-        <div className="row-start-1 col-start-1 sm:col-end-2 h-20">
+    <div className='h-dvh w-dvw overflow-hidden p-4 sm:p-8 md:p-12'>
+      <div className='grid h-[90dvh] grid-cols-6 grid-rows-3 sm:grid-cols-8'>
+        <div className='col-start-1 row-start-1 h-20 sm:col-end-2'>
           <DropDown />
         </div>
         <div
-          className=" row-start-2 row-end-3 col-start-2 sm:col-start-3 md:col-start-4 lg:col-start-5 col-end-9 md:col-end-8
-      flex justify-center sm:justify-end"
+          className=' col-start-2 col-end-9 row-start-2 row-end-3 flex justify-center sm:col-start-3 sm:justify-end
+          md:col-start-4 md:col-end-8 lg:col-start-5'
         >
           <DisplayDateTime />
         </div>
-        <div className=" row-start-3 row-end-4 col-start-1 xl:col-start-3 sm:col-span-9 md:col-end-8 hidden sm:flex justify-end">
+        <div className=' col-start-1 row-start-3 row-end-4 hidden justify-end sm:col-span-9 sm:flex md:col-end-8 xl:col-start-3'>
           <DisplayWeather />
         </div>
       </div>

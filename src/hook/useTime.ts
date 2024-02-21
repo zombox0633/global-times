@@ -10,7 +10,10 @@ function useTime({ timezoneData }: UseTimePropsType) {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      const formattedTimeZone = `${timezoneData.continent}/${timezoneData.city}`.replaceAll(" ", "_");
+      const formattedTimeZone = `${timezoneData.continent}/${timezoneData.city}`.replaceAll(
+        " ",
+        "_",
+      );
       const localTime = new Date().toLocaleString("en-US", {
         timeZone: formattedTimeZone,
       });

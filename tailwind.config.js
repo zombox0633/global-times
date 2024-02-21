@@ -7,7 +7,7 @@ export default {
     },
     extend: {
       colors: {
-        night:"#121212",
+        night: "#121212",
         eerieBlack: "#1a1a1a",
       },
     },

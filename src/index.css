@@ -4,11 +4,11 @@
 
 @layer base {
   * {
-    @apply m-0 p-0 box-border;
+    @apply m-0 box-border p-0;
   }
 
   body {
-    @apply max-w-[100dvw] max-h-[100dvw] bg-eerieBlack text-white font-Oswald;
+    @apply max-h-[100dvw] max-w-[100dvw] bg-eerieBlack font-Oswald text-white;
   }
 
   h1 {
@@ -22,8 +22,8 @@
   }
 
   button {
-    @apply button_df__transition px-[0.4em] py-[0.2em] border-2 border-solid border-transparent rounded-md
-    bg-eerieBlack text-white text-xl xl:text-2xl hover:cursor-pointer hover:border-white;
+    @apply button_df__transition rounded-md border-2 border-solid border-transparent bg-eerieBlack px-[0.4em]
+    py-[0.2em] text-xl text-white hover:cursor-pointer hover:border-white xl:text-2xl;
   }
 }
 
@@ -31,15 +31,19 @@
   /* icon */
   .material-symbols-outlined {
     font-size: 2.5rem;
-    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    font-variation-settings:
+      "FILL" 0,
+      "wght" 400,
+      "GRAD" 0,
+      "opsz" 24;
   }
 
   .button_df__transition {
     transition: border-color 0.25s;
   }
   .focus__df {
-    @apply focus:outline focus:outline-offset-4 focus:outline-[2.5px] focus:outline-white
-    focus-visible:outline focus-visible:outline-offset-4 focus-visible:outline-[2.5px] focus-visible:outline-white;
+    @apply focus:outline focus:outline-[2.5px] focus:outline-offset-4 focus:outline-white
+    focus-visible:outline focus-visible:outline-[2.5px] focus-visible:outline-offset-4 focus-visible:outline-white;
   }
 
   /* BoxCountryDateTime */
@@ -52,22 +56,22 @@
   }
 
   .box__weather_df {
-    @apply relative w-28 lg:w-36 2xl:w-40 h-36 rounded-2xl shadow-xl overflow-hidden z-0;
+    @apply relative z-0 h-36 w-28 overflow-hidden rounded-2xl shadow-xl lg:w-36 2xl:w-40;
   }
 
   .box__weather_flex {
-    @apply flex flex-col justify-between p-4
+    @apply flex flex-col justify-between p-4;
   }
 
-  .box__weather_head{
-    @apply text-xl lg:text-2xl
+  .box__weather_head {
+    @apply text-xl lg:text-2xl;
   }
 
-  .box__weather_result{
-    @apply text-xl lg:text-3xl text-end
+  .box__weather_result {
+    @apply text-end text-xl lg:text-3xl;
   }
 
-  .box__weather_sub_result{
-    @apply text-xs lg:text-sm text-end
+  .box__weather_sub_result {
+    @apply text-end text-xs lg:text-sm;
   }
 }

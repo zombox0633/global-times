@@ -6,11 +6,10 @@ export type WeatherContextType = {
   addCity: (cityData: string) => void;
 };
 
-
 export const WeatherContext = createContext<WeatherContextType>({
-  weatherRecords:[],
-  addCity: () => {}
-})
+  weatherRecords: [],
+  addCity: () => {},
+});
 
 export const useWeatherContext = (): WeatherContextType =>
   useContext<WeatherContextType>(WeatherContext);

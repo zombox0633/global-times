@@ -11,7 +11,9 @@ export const TimeStampProvider = ({ children }: ContextProviderPropsType) => {
     continent: "Asia",
   });
 
-  const { timeStamp } = useTime({ timezoneData: timezone });
+  const { timeStamp } = useTime({
+    timezoneData: timezone,
+  });
 
   const findTimezone = useCallback(
     (countryPath: string) => {
@@ -26,7 +28,7 @@ export const TimeStampProvider = ({ children }: ContextProviderPropsType) => {
         setTimezone(foundTimezone);
       }
     },
-    [setTimezone]
+    [setTimezone],
   );
 
   const value = useMemo(
@@ -35,12 +37,8 @@ export const TimeStampProvider = ({ children }: ContextProviderPropsType) => {
       timeStamp,
       findTimezone,
     }),
-    [timezone, timeStamp, findTimezone]
+    [timezone, timeStamp, findTimezone],
   );
 
-  return (
-    <TimeStampContext.Provider value={value}>
-      {children}
-    </TimeStampContext.Provider>
-  );
+  return <TimeStampContext.Provider value={value}>{children}</TimeStampContext.Provider>;
 };

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import clsx from "clsx";
 import { GlobalTimeType, timezoneData } from "../constraint/TIMEZONE_DATA";
 
 function DropDown() {
@@ -13,29 +14,36 @@ function DropDown() {
   return (
     <div>
       <button
-        className="focus__df relative flex items-center justify-center w-40 pl-4 z-20"
+        type='button'
         onClick={() => setShowDropDown((prev) => !prev)}
+        className='focus__df relative z-20 flex w-40 items-center justify-center pl-4'
       >
         TimeZone
         <span
-          className={`material-symbols-outlined  ${
-            showDropDown ? "rotate-0" : "rotate-180"
-          } my-1 ml-1`}
+          className={clsx("material-symbols-outlined my-1 ml-1", {
+            " rotate-0": showDropDown,
+            "rotate-180": !showDropDown,
+          })}
         >
           expand_more
         </span>
       </button>
       <ul
-        className={`absolute ${
-          showDropDown ? "top-20 sm:top-24 xl:top-28" : "-top-[100%]"
-        } w-40 mt-4 bg-eerieBlack transition-all duration-1000 ease-in-out`}
+        className={clsx(
+          "absolute mt-4 w-40 bg-eerieBlack transition-all duration-1000 ease-in-out",
+          {
+            "top-20 sm:top-24 xl:top-28": showDropDown,
+            "-top-[100%]": !showDropDown,
+          },
+        )}
       >
         {timezoneData.map((item, index) => (
-          <li key={`timezone-${index + 1}`} className="mb-1 z-10">
+          <li key={`timezone-${index + 1}`} className='z-10 mb-1'>
             <button
-              className="pl-4 text-start w-[9.75rem]"
+              type='button'
               value={item.continent}
               onClick={() => handleChangeTimezone(item)}
+              className='w-[9.75rem] pl-4 text-start'
             >
               {item.country}
             </button>

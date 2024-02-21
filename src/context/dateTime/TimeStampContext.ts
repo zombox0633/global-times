@@ -4,7 +4,7 @@ import { GlobalTimeType } from "../../constraint/TIMEZONE_DATA";
 export type TimeStampContextType = {
   timeStamp: string | null;
   timezone: GlobalTimeType | null;
-  findTimezone: (countryPath: string) => void
+  findTimezone: (countryPath: string) => void;
 };
 
 export const TimeStampContext = createContext<TimeStampContextType>({
@@ -13,5 +13,4 @@ export const TimeStampContext = createContext<TimeStampContextType>({
   findTimezone: () => {},
 });
 
-export const useTimeStampContext = () =>
-  useContext<TimeStampContextType>(TimeStampContext);
+export const useTimeStampContext = () => useContext<TimeStampContextType>(TimeStampContext);

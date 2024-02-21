@@ -7,7 +7,7 @@ type DisplayDatePropsType = {
 function DisplayDate({ formattedDate }: DisplayDatePropsType) {
   return (
     <div>
-      <p className=" text-xl">{formattedDate}</p>
+      <p className=' text-xl'>{formattedDate}</p>
     </div>
   );
 }

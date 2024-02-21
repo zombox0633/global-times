@@ -22,7 +22,7 @@ export const WeatherProvider = ({ children }: ContextProviderPropsType) => {
         }
       }
     },
-    [requestedCitiesRef]
+    [requestedCitiesRef],
   );
 
   const value = useMemo(
@@ -30,10 +30,8 @@ export const WeatherProvider = ({ children }: ContextProviderPropsType) => {
       weatherRecords,
       addCity,
     }),
-    [weatherRecords, addCity]
+    [weatherRecords, addCity],
   );
 
-  return (
-    <WeatherContext.Provider value={value}>{children}</WeatherContext.Provider>
-  );
+  return <WeatherContext.Provider value={value}>{children}</WeatherContext.Provider>;
 };
