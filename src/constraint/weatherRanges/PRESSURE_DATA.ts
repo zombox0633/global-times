@@ -1,6 +1,6 @@
 import { EnvironmentRangesDataType } from "./environmentRanges.type";
 
-export const pressureRanges:EnvironmentRangesDataType[] = [
+export const pressureRanges: EnvironmentRangesDataType[] = [
   {
     max: 1000,
     status: "Low Pressure",
@@ -17,4 +17,4 @@ export const pressureRanges:EnvironmentRangesDataType[] = [
     status: "High Pressure",
     color: "bg-[#ADC178]",
   },
-] as const ;
+] as const;

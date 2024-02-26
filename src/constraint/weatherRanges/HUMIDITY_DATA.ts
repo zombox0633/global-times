@@ -1,6 +1,6 @@
 import { EnvironmentRangesDataType } from "./environmentRanges.type";
 
-export const humidityRanges:EnvironmentRangesDataType[] = [
+export const humidityRanges: EnvironmentRangesDataType[] = [
   {
     max: 30,
     status: "Very Dry",
@@ -23,4 +23,4 @@ export const humidityRanges:EnvironmentRangesDataType[] = [
     status: "Very High Humidity",
     color: "bg-[#005F73]",
   },
-] as const ;
+] as const;

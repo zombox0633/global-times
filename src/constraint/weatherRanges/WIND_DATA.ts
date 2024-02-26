@@ -1,6 +1,6 @@
 import { EnvironmentRangesDataType } from "./environmentRanges.type";
 
-export const windSpeedKmHRanges:EnvironmentRangesDataType[] = [
+export const windSpeedKmHRanges: EnvironmentRangesDataType[] = [
   {
     max: 20,
     status: "Light",

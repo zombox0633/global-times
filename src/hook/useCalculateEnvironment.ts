@@ -1,5 +1,8 @@
 import { useMemo } from "react";
-import { EnvironmentPropsType, UseCalculateEnvironmentType } from "../constraint/weatherRanges/environmentRanges.type";
+import {
+  EnvironmentPropsType,
+  UseCalculateEnvironmentType,
+} from "../constraint/weatherRanges/environmentRanges.type";
 import { humidityRanges } from "../constraint/weatherRanges/HUMIDITY_DATA";
 import { pressureRanges } from "../constraint/weatherRanges/PRESSURE_DATA";
 import { windSpeedKmHRanges } from "../constraint/weatherRanges/WIND_DATA";
@@ -9,7 +12,6 @@ function useCalculateEnvironment({
   type,
   data,
 }: EnvironmentPropsType): UseCalculateEnvironmentType {
-
   const environmentValue = useMemo(() => {
     let ranges;
     switch (type) {

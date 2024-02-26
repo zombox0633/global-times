@@ -8,20 +8,23 @@ export const WeatherProvider = ({ children }: ContextProviderPropsType) => {
   const [weatherRecords, setWeatherRecords] = useState<WeatherType[]>([]);
   // const requestedCitiesRef = useRef(new Set<string>());
 
-  const addCity = useCallback(async (cityName: string) => {
-    const cityNameLowerCase = cityName.toLowerCase();
-    const requestedCities = weatherRecords.some((item) => item.name === cityName);
-    if (!requestedCities) {
-      // requestedCitiesRef.current.add(cityNameLowerCase);
+  const addCity = useCallback(
+    async (cityName: string) => {
+      const cityNameLowerCase = cityName.toLowerCase();
+      const requestedCities = weatherRecords.some((item) => item.name === cityName);
+      if (!requestedCities) {
+        // requestedCitiesRef.current.add(cityNameLowerCase);
 
-      const [data, error] = await getWeatherService({
-        city: cityNameLowerCase,
-      });
-      if (!error && data) {
-        setWeatherRecords((prevRecords) => [...prevRecords, data]);
+        const [data, error] = await getWeatherService({
+          city: cityNameLowerCase,
+        });
+        if (!error && data) {
+          setWeatherRecords((prevRecords) => [...prevRecords, data]);
+        }
       }
-    }
-  }, [weatherRecords]);
+    },
+    [weatherRecords],
+  );
 
   const value = useMemo(
     () => ({

@@ -2,7 +2,7 @@ type BoxWindDataPropsType = {
   windSpeed: number;
   status: string;
   color: string;
-}
+};
 
 type BoxWindPropsType = {
   windValue: BoxWindDataPropsType;
