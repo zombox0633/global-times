@@ -21,6 +21,7 @@ function DateTimeCountryPage() {
 
   return (
     <div className='h-dvh w-dvw overflow-hidden p-4 sm:p-8 md:p-12'>
+      <div className=' absolute left-0 top-0 z-20 h-24 w-full bg-eerieBlack' />
       <div className='grid h-[90dvh] grid-cols-6 grid-rows-3 sm:grid-cols-8'>
         <div className='col-start-1 row-start-1 h-20 sm:col-end-2'>
           <SelectCountry />

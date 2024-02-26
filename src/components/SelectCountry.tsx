@@ -16,7 +16,7 @@ function SelectCountry() {
       <button
         type='button'
         onClick={() => setShowSelectCountry((prev) => !prev)}
-        className='focus__df relative z-20 flex w-40 items-center justify-center pl-4'
+        className='focus__df relative z-30 flex w-40 items-center justify-center bg-eerieBlack pl-4'
       >
         TimeZone
         <span
