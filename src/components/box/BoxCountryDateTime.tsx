@@ -7,9 +7,9 @@ import DisplayTemperature from "./DisplayTemperature";
 import DisplayTime from "./DisplayTime";
 
 import { useWeatherContext } from "../../context/weather/WeatherContext";
-import useTemperatureColor from "../../hook/useTemperatureColor";
 import useTime from "../../hook/useTime";
 import { BoxCountryDateTimePropsTypes } from "./BoxCountryDateTime.type";
+import useCalculateEnvironment from "../../hook/useCalculateEnvironment";
 
 function BoxCountryDateTime({ timezoneData }: BoxCountryDateTimePropsTypes) {
   const { timeStamp } = useTime({ timezoneData });
@@ -23,12 +23,10 @@ function BoxCountryDateTime({ timezoneData }: BoxCountryDateTimePropsTypes) {
     }
   }, [cityName]);
 
-  DisplayTemperature
+  DisplayTemperature;
   const cityWeather = weatherRecords.find((item) => item.name.toLowerCase() === cityName);
   const tempData = cityWeather?.main.temp ?? 0;
-  const tempColor = useTemperatureColor({
-    tempData,
-  });
+  const tempColor = useCalculateEnvironment({ type: "temperature", data: tempData });
 
   //NavLink
   const countryPath = `country/${timezoneData.country.toLowerCase()}`;
@@ -39,7 +37,7 @@ function BoxCountryDateTime({ timezoneData }: BoxCountryDateTimePropsTypes) {
   return (
     <div className=' relative w-64 overflow-hidden rounded-3xl bg-night px-8 py-5 shadow-xl 2xl:h-48 2xl:w-72'>
       <NavLink to={countryPath} className='box_date_time__link'>
-        <DisplayTemperature tempData={tempData} tempColor={tempColor} />
+        <DisplayTemperature tempData={tempData} tempColor={tempColor.color} />
         <div className='relative z-20 flex h-full flex-col justify-between'>
           <DisplayLocation timezoneData={timezoneData} />
           <div>
