@@ -1,7 +1,11 @@
-import { UseBoxWindType } from "../../hook/useBoxWind";
+type BoxWindDataPropsType = {
+  windSpeed: number;
+  status: string;
+  color: string;
+}
 
 type BoxWindPropsType = {
-  windValue: UseBoxWindType;
+  windValue: BoxWindDataPropsType;
 };
 
 function BoxWind({ windValue }: BoxWindPropsType) {

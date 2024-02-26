@@ -1,4 +1,7 @@
-import { UseBoxWeatherType } from "../../hook/useBoxWeather";
+type UseBoxWeatherType = {
+  icon: string;
+  color: string;
+};
 
 type BoxWeatherPropsType = {
   weatherData: string;

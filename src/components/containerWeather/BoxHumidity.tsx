@@ -1,8 +1,8 @@
-import { UseBoxHumidityType } from "../../hook/useBoxHumidity";
+import { UseCalculateEnvironmentType } from "../../constraint/weatherRanges/environmentRanges.type";
 
 type BoxHumidityDataPropsType = {
   humidityData: number;
-  humidityValue: UseBoxHumidityType;
+  humidityValue: UseCalculateEnvironmentType;
 };
 
 type BoxHumidityPropsType = {

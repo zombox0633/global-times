@@ -1,8 +1,8 @@
-import { UseBoxPressure } from "../../hook/useBoxPressure";
+import { UseCalculateEnvironmentType } from "../../constraint/weatherRanges/environmentRanges.type";
 
 type BoxPressureDataPropsType = {
   pressureData: number;
-  pressureValue: UseBoxPressure;
+  pressureValue: UseCalculateEnvironmentType;
 };
 
 type BoxPressurePropsType = {
