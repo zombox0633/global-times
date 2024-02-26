@@ -21,9 +21,9 @@ function BoxCountryDateTime({ timezoneData }: BoxCountryDateTimePropsTypes) {
     if (cityName) {
       addCity(cityName);
     }
-  }, [cityName, addCity]);
+  }, [cityName]);
 
-  //DisplayTemperature
+  DisplayTemperature
   const cityWeather = weatherRecords.find((item) => item.name.toLowerCase() === cityName);
   const tempData = cityWeather?.main.temp ?? 0;
   const tempColor = useTemperatureColor({

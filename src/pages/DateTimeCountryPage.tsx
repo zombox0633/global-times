@@ -17,7 +17,7 @@ function DateTimeCountryPage() {
     if (cityName) {
       addCity(cityName);
     }
-  }, [cityName, addCity]);
+  }, [cityName]);
 
   return (
     <div className='h-dvh w-dvw overflow-hidden p-4 sm:p-8 md:p-12'>

@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import { WeatherType } from "../../api/getWeatherService.type";
+import { WeatherType } from "../../service/getWeatherService.type";
 
 export type WeatherContextType = {
   weatherRecords: WeatherType[];
