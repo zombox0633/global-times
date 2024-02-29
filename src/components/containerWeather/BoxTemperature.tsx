@@ -18,7 +18,7 @@ function BoxTemperature({ temperatureData: temperature }: BoxTemperaturePropsTyp
       <div>
         <p className='box__weather_result'>{tempData.toFixed(1)}&deg;C</p>
         <p className='box__weather_sub_result'>
-          {minTemp}&deg;C - {maxTemp}&deg;C
+          {minTemp}&deg;C / {maxTemp}&deg;C
         </p>
       </div>
     </div>

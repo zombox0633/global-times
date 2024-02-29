@@ -2,13 +2,18 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import clsx from "clsx";
 import { GlobalTimeType, timezoneData } from "../constraint/TIMEZONE_DATA";
+import { formatForURL } from "../helper/formatForURL";
 
 function SelectCountry() {
   const navigate = useNavigate();
   const [showSelectCountry, setShowSelectCountry] = useState<boolean>(false);
 
+  const filterHighlight = timezoneData.filter((item) => item.highlighted);
+  const sortTimezoneData = filterHighlight.sort((a, b) => a.country.localeCompare(b.country));
+
   const handleChangeTimezone = (timezone: GlobalTimeType) => {
-    navigate(`/country/${timezone.country.toLowerCase()}`);
+    const countryPath = formatForURL(timezone.country);
+    navigate(`/country/${countryPath}`);
   };
 
   return (
@@ -37,13 +42,13 @@ function SelectCountry() {
           },
         )}
       >
-        {timezoneData.map((item, index) => (
+        {sortTimezoneData.map((item, index) => (
           <li key={`timezone-${index + 1}`} className='z-10 mb-1'>
             <button
               type='button'
               value={item.continent}
               onClick={() => handleChangeTimezone(item)}
-              className='w-[9.75rem] pl-4 text-start'
+              className='w-[9.75rem] pl-4 text-xl text-start'
             >
               {item.country}
             </button>

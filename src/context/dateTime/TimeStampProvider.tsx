@@ -3,12 +3,14 @@ import { TimeStampContext } from "./TimeStampContext";
 import useTime from "../../hook/useTime";
 import { GlobalTimeType, timezoneData } from "../../constraint/TIMEZONE_DATA";
 import { ContextProviderPropsType } from "../context.type";
+import { slugToText } from "../../helper/formatForURL";
 
 export const TimeStampProvider = ({ children }: ContextProviderPropsType) => {
   const [timezone, setTimezone] = useState<GlobalTimeType>({
     country: "Thailand",
     city: "Bangkok",
     continent: "Asia",
+    highlighted: true,
   });
 
   const { timeStamp } = useTime({
@@ -18,9 +20,10 @@ export const TimeStampProvider = ({ children }: ContextProviderPropsType) => {
   const findTimezone = useCallback(
     (countryPath: string) => {
       const foundTimezone = timezoneData.find((timezone) => {
+        const searchText = slugToText(countryPath);
         return (
-          timezone.country.toLowerCase() === countryPath.toLowerCase() ||
-          timezone.city.toLowerCase() === countryPath.toLowerCase()
+          timezone.country.toLowerCase() === searchText ||
+          timezone.city.toLowerCase() === searchText
         );
       });
 
