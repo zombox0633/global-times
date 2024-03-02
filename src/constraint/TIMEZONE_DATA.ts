@@ -1089,13 +1089,13 @@ export const timezoneData: TimezoneDataType = [
     continent: "Europe",
     country: "Belarus",
     city: "Minsk",
-    highlighted: true,
+    highlighted: false,
   },
   {
     continent: "Europe",
     country: "Moldova",
     city: "Chisinau",
-    highlighted: true,
+    highlighted: false,
   },
   {
     continent: "Europe",
