@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import SelectCountry from "../components/SelectCountry";
+import SelectCountry from "../components/select/SelectCountry";
 import DisplayDateTime from "../components/containerDateTime/DisplayDateTime";
 import DisplayWeather from "../components/containerWeather/DisplayWeather";
 import { useTimeStampContext } from "../context/dateTime/TimeStampContext";

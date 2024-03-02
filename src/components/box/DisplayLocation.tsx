@@ -4,7 +4,7 @@ function DisplayLocation({ timezoneData }: BoxCountryDateTimePropsTypes) {
   return (
     <div>
       <p className='text-2xl'>{timezoneData.country}</p>
-      <p className=' ml-1 text-lg'>{timezoneData.city}</p>
+      <p className='text-lg'>{timezoneData.city}</p>
     </div>
   );
 }

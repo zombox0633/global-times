@@ -41,7 +41,7 @@ function DisplayWeather() {
 
   tempColor.color;
   return (
-    <div className=' flex h-full w-full items-center sm:justify-between md:max-w-[40rem] lg:max-w-[48rem] xl:max-w-[60rem]'>
+    <div className=' -z-20 flex h-full w-full items-center sm:justify-between md:max-w-[40rem] lg:max-w-[48rem] xl:max-w-[60rem]'>
       <BoxWeather weatherValue={weatherValue} weatherData={weatherData} />
       <BoxTemperature
         temperatureData={{

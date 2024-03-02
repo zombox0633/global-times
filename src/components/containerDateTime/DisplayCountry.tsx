@@ -6,7 +6,7 @@ type DisplayCountryPropsType = {
 
 function DisplayCountry({ timezone }: DisplayCountryPropsType) {
   return (
-    <div className='flex justify-end'>
+    <div>
       <h3>{timezone?.country}</h3>
     </div>
   );
