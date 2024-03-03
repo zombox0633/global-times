@@ -9,9 +9,14 @@ import { useWeatherContext } from "../context/weather/WeatherContext";
 function DateTimeCountryPage() {
   const { countryPath } = useParams();
   const { timezone, findTimezone } = useTimeStampContext();
-  const { addCity } = useWeatherContext();
+  const { weatherRecords, addCity } = useWeatherContext();
+
   const cityName = timezone?.city;
   countryPath && findTimezone(countryPath);
+
+  const findWeatherData = weatherRecords.some(
+    (record) => record.name.toLowerCase() === cityName?.toLowerCase(),
+  );
 
   useEffect(() => {
     if (cityName) {
@@ -33,7 +38,7 @@ function DateTimeCountryPage() {
           <DisplayDateTime />
         </div>
         <div className=' col-start-1 row-start-3 row-end-4 hidden justify-end sm:col-span-9 sm:flex md:col-end-8 xl:col-start-3'>
-          <DisplayWeather />
+          {findWeatherData && <DisplayWeather />}
         </div>
       </div>
     </div>
