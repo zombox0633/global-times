@@ -4,8 +4,11 @@ import useTime from "../../hook/useTime";
 import { GlobalTimeType, timezoneData } from "../../constraint/TIMEZONE_DATA";
 import { ContextProviderPropsType } from "../context.type";
 import { slugToText } from "../../helper/formatForURL";
+import { useNavigate } from "react-router-dom";
 
 export const TimeStampProvider = ({ children }: ContextProviderPropsType) => {
+  const navigate = useNavigate();
+
   const [timezone, setTimezone] = useState<GlobalTimeType>({
     country: "Thailand",
     city: "Bangkok",
@@ -29,6 +32,8 @@ export const TimeStampProvider = ({ children }: ContextProviderPropsType) => {
 
       if (foundTimezone) {
         setTimezone(foundTimezone);
+      } else {
+        navigate("*");
       }
     },
     [setTimezone],
