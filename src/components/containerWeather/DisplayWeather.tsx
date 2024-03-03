@@ -39,7 +39,6 @@ function DisplayWeather() {
   const windSpeedKmH = windData * 3.6;
   const windValue = useCalculateEnvironment({ type: "wind", data: windSpeedKmH });
 
-  tempColor.color;
   return (
     <div className=' -z-20 flex h-full w-full items-center sm:justify-between md:max-w-[40rem] lg:max-w-[48rem] xl:max-w-[60rem]'>
       <BoxWeather weatherValue={weatherValue} weatherData={weatherData} />
