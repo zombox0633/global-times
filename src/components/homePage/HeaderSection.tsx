@@ -1,8 +1,8 @@
-import SearchBarCounty from "./searchBar/SearchBarCounty";
+import SearchBarCounty from "../searchBar/SearchBarCounty";
 
 function HeaderSection() {
   return (
-    <div className=' m-4 mb-16 flex h-32 flex-col items-center justify-center 2xl:m-8 2xl:h-48'>
+    <div className=' m-8 mb-20 flex h-36 flex-col items-center justify-center 2xl:h-40'>
       <div className='mb-12'>
         <h1 className=' text-center text-5xl'>Time Zone</h1>
       </div>
