@@ -105,8 +105,8 @@ export const timezoneData: TimezoneDataType = [
     highlighted: false,
   },
   {
-    continent: "Africa",
-    country: "Cabo Verde",
+    continent: "Atlantic",
+    country: "Cape Verde",
     city: "Cape Verde",
     highlighted: false,
   },
@@ -1012,7 +1012,7 @@ export const timezoneData: TimezoneDataType = [
     highlighted: false,
   },
   {
-    continent: "Europe",
+    continent: "Atlantic",
     country: "Iceland",
     city: "Reykjavik",
     highlighted: false,
