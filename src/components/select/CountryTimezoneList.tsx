@@ -16,9 +16,9 @@ function CountryTimezoneList({ countryTimezoneData }: CountryTimezoneListPropsTy
   return (
     <ul
       className={clsx(
-        "absolute mt-4 w-40 rounded-lg bg-eerieBlack transition-all duration-1000 ease-in-out",
+        " absolute z-50 mt-4 w-40 rounded-lg bg-night transition-all duration-700 ease-in-out",
         {
-          "top-20 sm:top-24 xl:top-28": showSelectCountry,
+          "top-20 sm:top-24 xl:top-[6.2rem]": showSelectCountry,
           "-top-[100%]": !showSelectCountry,
         },
       )}
@@ -29,7 +29,7 @@ function CountryTimezoneList({ countryTimezoneData }: CountryTimezoneListPropsTy
             type='button'
             value={item.continent}
             onClick={() => handleChangeTimezone(item)}
-            className='w-[9.75rem] bg-eerieBlack pl-4 text-start text-xl'
+            className='w-[9.75rem] bg-night pl-4 text-start text-xl'
           >
             {item.country}
           </button>

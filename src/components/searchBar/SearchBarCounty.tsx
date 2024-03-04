@@ -45,21 +45,21 @@ function SearchBarCounty() {
           onChange={(e) => setSearchCounty(e.target.value)}
           placeholder='Search for a county'
           required
-          className=' h-12 w-60 rounded-s-md border-2 border-white bg-eerieBlack px-4 placeholder:text-white focus:outline-none sm:w-80'
+          className=' h-12 w-60 rounded-s-md border-2 border-white bg-night px-4 placeholder:text-white focus:outline-none sm:w-80'
         />
         {searchCounty && (
           <div className='absolute right-16 top-2 '>
             <button
               type='button'
               onClick={() => setSearchCounty("")}
-              className='material-symbols-outlined bg-eerieBlack text-base hover:border-eerieBlack'
+              className='material-symbols-outlined bg-night text-base'
             >
               close
             </button>
           </div>
         )}
       </label>
-      <button className='material-symbols-outlined h-12 rounded-none rounded-e-md border-2 border-white bg-white text-2xl text-eerieBlack'>
+      <button className='material-symbols-outlined h-12 rounded-none rounded-e-md border-2 border-white bg-white text-2xl text-night'>
         search
       </button>
       <SuggestionsList suggestions={suggestions} setSearchCounty={setSearchCounty} />
