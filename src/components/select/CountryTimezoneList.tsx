@@ -13,6 +13,7 @@ type CountryTimezoneListPropsType = {
 
 function CountryTimezoneList({ countryTimezoneData }: CountryTimezoneListPropsType) {
   const { sortTimezoneData, showSelectCountry, handleChangeTimezone } = countryTimezoneData;
+
   return (
     <ul
       className={clsx(
@@ -27,7 +28,7 @@ function CountryTimezoneList({ countryTimezoneData }: CountryTimezoneListPropsTy
         <li key={`timezone-${index + 1}`} className='z-10 mb-1'>
           <button
             type='button'
-            value={item.continent}
+            value={item.country}
             onClick={() => handleChangeTimezone(item)}
             className='w-[9.75rem] bg-night pl-4 text-start text-xl'
           >
