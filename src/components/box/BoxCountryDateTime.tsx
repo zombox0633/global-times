@@ -5,12 +5,13 @@ import DisplayDate from "./DisplayDate";
 import DisplayLocation from "./DisplayLocation";
 import DisplayTemperature from "./DisplayTemperature";
 import DisplayTime from "./DisplayTime";
+import TogglePinCountryButton from "../TogglePinCountryButton";
 
 import { useWeatherContext } from "../../context/weather/WeatherContext";
 import useTime from "../../hook/useTime";
+import { formatForURL } from "../../helper/formatForURL";
 import { BoxCountryDateTimePropsTypes } from "./BoxCountryDateTime.type";
 import useCalculateEnvironment from "../../hook/useCalculateEnvironment";
-import { formatForURL } from "../../helper/formatForURL";
 
 function BoxCountryDateTime({ timezoneData }: BoxCountryDateTimePropsTypes) {
   const { timeStamp } = useTime({ timezoneData });
@@ -48,6 +49,9 @@ function BoxCountryDateTime({ timezoneData }: BoxCountryDateTimePropsTypes) {
           </div>
         </div>
       </NavLink>
+      <div className='absolute -bottom-1 -right-1 z-20 flex h-20 w-24 items-center justify-center'>
+        <TogglePinCountryButton countryName={countryPath} />
+      </div>
     </div>
   );
 }
