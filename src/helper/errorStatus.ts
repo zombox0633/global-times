@@ -1,3 +1,7 @@
+export const checkErrorMessage = (error: unknown): string => {
+  return error instanceof Error ? error.message : "Unknown error";
+};
+
 export const statusMessageError: {
   [key: number]: { message: string };
 } = {

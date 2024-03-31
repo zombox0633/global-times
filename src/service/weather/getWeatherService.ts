@@ -1,6 +1,6 @@
 import axios from "axios";
-import { onHandleErrorFromAPI } from "../config/serviceApi";
-import { AxiosReturn } from "../config/serviceApi.type";
+import { onHandleErrorFromAPI } from "../../config/serviceApi";
+import { AxiosReturn } from "../../config/serviceApi.type";
 import { GetWeatherServicePropsType, WeatherType } from "./getWeatherService.type";
 
 async function getWeatherService({ city }: GetWeatherServicePropsType): AxiosReturn<WeatherType> {

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
-import getWeatherService from "../service/getWeatherService";
-import { WeatherType } from "../service/getWeatherService.type";
+import getWeatherService from "../service/weather/getWeatherService";
+import { WeatherType } from "../service/weather/getWeatherService.type";
 
 type UseGetWeatherServicePropsType = {
   city: string;
