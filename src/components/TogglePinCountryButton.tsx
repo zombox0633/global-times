@@ -11,7 +11,7 @@ function TogglePinCountryButton({ countryName }: TogglePinCountryButtonPropsType
 
   return (
     <button
-      type="button"
+      type='button'
       aria-label={`Pin/Unpin ${countryName}`}
       onClick={() => togglePin(countryName)}
       className={clsx("material-symbols-outlined text-2xl", {

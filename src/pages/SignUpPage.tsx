@@ -3,19 +3,11 @@ import AuthenticationForm from "../components/AuthenticationForm";
 function SignUpPage() {
   return (
     <>
-      <AuthenticationForm isLogin={false} >
+      <AuthenticationForm isLogin={false}>
         <div className='min-h-80'>
           <div className=' flex h-60 flex-col justify-between px-10'>
-            <input
-              type='email'
-              placeholder='Email'
-              className='authentication__input'
-            />
-            <input
-              type='password'
-              placeholder='Password'
-              className='authentication__input'
-            />
+            <input type='email' placeholder='Email' className='authentication__input' />
+            <input type='password' placeholder='Password' className='authentication__input' />
             <input
               type='password'
               placeholder='Confirm Password'

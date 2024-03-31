@@ -6,11 +6,7 @@ function LoginPage() {
       <AuthenticationForm isLogin={true}>
         <div className='min-h-80'>
           <div className=' flex h-48 flex-col justify-between px-10'>
-            <input
-              type='email'
-              placeholder='Email address'
-              className='authentication__input'
-            />
+            <input type='email' placeholder='Email address' className='authentication__input' />
             <input
               type='password'
               placeholder='Password address'

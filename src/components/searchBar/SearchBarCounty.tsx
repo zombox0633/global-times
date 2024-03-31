@@ -62,7 +62,7 @@ function SearchBarCounty() {
         )}
       </label>
       <button
-        type="submit"
+        type='submit'
         aria-label='Submit a country search.'
         className='material-symbols-outlined h-12 rounded-none rounded-e-md border-2 border-white bg-white text-2xl text-night'
       >

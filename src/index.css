@@ -76,7 +76,7 @@
   }
 
   /* SignUpPage && LoginPage */
-  .authentication__input{
+  .authentication__input {
     @apply h-10 rounded-md pl-4 text-black placeholder:text-black/70;
   }
 }
