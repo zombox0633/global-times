@@ -1,8 +1,8 @@
 import { useCallback, useMemo, useState } from "react";
 import { ContextProviderPropsType } from "../context.type";
 import { WeatherContext } from "./WeatherContext";
-import getWeatherService from "../../service/getWeatherService";
-import { WeatherType } from "../../service/getWeatherService.type";
+import getWeatherService from "../../service/weather/getWeatherService";
+import { WeatherType } from "../../service/weather/getWeatherService.type";
 
 export const WeatherProvider = ({ children }: ContextProviderPropsType) => {
   const [weatherRecords, setWeatherRecords] = useState<WeatherType[]>([]);
