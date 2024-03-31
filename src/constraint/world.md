@@ -7,3 +7,7 @@
 อเมริกาใต้ - ประมาณ 12 ประเทศ /
 
 Canada,Benin,Haiti
+
+/v1/user create post
+/v1/user/login get
+/v1/user/register get

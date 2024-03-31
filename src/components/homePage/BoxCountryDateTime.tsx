@@ -39,7 +39,11 @@ function BoxCountryDateTime({ timezoneData }: BoxCountryDateTimePropsTypes) {
 
   return (
     <div className=' relative w-64 overflow-hidden rounded-3xl bg-night px-8 py-5 shadow-xl 2xl:h-48 2xl:w-72'>
-      <NavLink to={path} className='box_date_time__link'>
+      <NavLink
+        to={path}
+        aria-label={`View details of the time period and related information of ${countryPath}`}
+        className='box_date_time__link'
+      >
         <DisplayTemperature tempData={tempData} tempColor={tempColor.color} />
         <div className='relative z-20 flex h-full flex-col justify-between'>
           <DisplayLocation timezoneData={timezoneData} />

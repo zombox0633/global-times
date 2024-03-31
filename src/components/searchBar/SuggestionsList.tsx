@@ -12,6 +12,7 @@ function SuggestionsList({ suggestions, setSearchCounty }: SuggestionsListPropsT
         suggestions.map((suggestion) => (
           <li key={suggestion.country}>
             <button
+              aria-label={`Select ${suggestion.country}`}
               onClick={() => setSearchCounty(suggestion.country)}
               className=' w-full bg-white pl-4 text-start text-lg text-night hover:border-night'
             >

@@ -37,10 +37,20 @@ function TimeZoneGrid() {
       >
         {hasPin && (
           <div className=' absolute -top-[3.5rem] left-1/2 flex w-[13rem] -translate-x-1/2 justify-between sm:left-16 sm:translate-x-0 lg:left-8'>
-            <button type='button' onClick={() => setDisplayMode("recommended")} className='text-xl'>
+            <button
+              type='button'
+              aria-label='Switch to Recommended mode'
+              onClick={() => setDisplayMode("recommended")}
+              className='text-xl'
+            >
               Recommended
             </button>
-            <button type='button' onClick={() => setDisplayMode("pin")} className='text-xl'>
+            <button
+              type='button'
+              aria-label='Switch to Pinned mode'
+              onClick={() => setDisplayMode("pin")}
+              className='text-xl'
+            >
               Pinned
             </button>
           </div>

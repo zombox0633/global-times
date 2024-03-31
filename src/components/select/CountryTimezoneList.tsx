@@ -28,6 +28,7 @@ function CountryTimezoneList({ countryTimezoneData }: CountryTimezoneListPropsTy
         <li key={`timezone-${index + 1}`} className='z-10 mb-1'>
           <button
             type='button'
+            aria-label={`Select time zone for ${item.country}`}
             value={item.country}
             onClick={() => handleChangeTimezone(item)}
             className='w-[9.75rem] bg-night pl-4 text-start text-xl'

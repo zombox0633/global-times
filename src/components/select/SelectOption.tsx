@@ -10,6 +10,7 @@ function SelectOption({ showSelectItem, setShowSelectItem }: SelectOptionPropsTy
     <div>
       <button
         type='button'
+        aria-label="Toggle time zone selection"
         onClick={() => setShowSelectItem((prev) => !prev)}
         className='focus__df relative z-[60] flex w-40 items-center justify-center bg-night pl-4'
       >
