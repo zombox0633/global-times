@@ -74,4 +74,9 @@
   .box__weather_sub_result {
     @apply text-end text-xs lg:text-sm;
   }
+
+  /* SignUpPage && LoginPage */
+  .authentication__input{
+    @apply h-10 rounded-md pl-4 text-black placeholder:text-black/70;
+  }
 }
