@@ -1,15 +1,17 @@
+// import DisplayPinsCity from "../components/homePage/DisplayPinsCity";
+import DisplayRecommendedCities from "../components/homePage/DisplayRecommendedCities";
 import HeaderSection from "../components/homePage/HeaderSection";
-import TimeZoneGrid from "../components/homePage/TimeZoneGrid";
-// import useGetInterestGroupData from "../hook/useGetInterestGroupData";
+// import { usePinContext } from "../context/pin/PinContext";
 
 function HomePage() {
-  // const {sortedInterestGroupData} = useGetInterestGroupData({page:1,size:12})
-  // console.log(sortedInterestGroupData);
+  // const { pins } = usePinContext();
+  // const hasPin: boolean = pins.length > 0;
 
   return (
     <div className='relative flex h-dvh min-h-dvh flex-col justify-between overflow-x-hidden p-8 sm:pb-8'>
       <HeaderSection />
-      <TimeZoneGrid />
+      {/* {hasPin && <DisplayPinsCity pins={pins} />} */}
+      <DisplayRecommendedCities />
       <div className='h-8 2xl:h-20' />
     </div>
   );

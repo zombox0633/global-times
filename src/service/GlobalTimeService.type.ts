@@ -1,5 +1,5 @@
-export interface InterestGroupType {
-  content: ContentDataType[];
+export interface GlobalTimePageableType {
+  content: CityDataType[];
   pageable: PageableType;
   last: boolean;
   totalElements: number;
@@ -12,7 +12,7 @@ export interface InterestGroupType {
   empty: boolean;
 }
 
-export interface ContentDataType {
+export interface CityDataType {
   id: string;
   city_id: string;
   city_name: string;

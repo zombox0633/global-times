@@ -7,17 +7,22 @@ import DisplayTemperature from "./DisplayTemperature";
 import DisplayTime from "./DisplayTime";
 import TogglePinCountryButton from "../TogglePinCountryButton";
 
-import { useWeatherContext } from "../../context/weather/WeatherContext";
 import useTime from "../../hook/useTime";
 import { formatForURL } from "../../helper/formatForURL";
-import { BoxCountryDateTimePropsTypes } from "./BoxCountryDateTime.type";
+import { useWeatherContext } from "../../context/weather/WeatherContext";
 import useCalculateEnvironment from "../../hook/useCalculateEnvironment";
+import { CityDataType } from "../../service/GlobalTimeService.type";
 
-function BoxCountryDateTime({ timezoneData }: BoxCountryDateTimePropsTypes) {
+export type TimezoneDataPropsTypes = {
+  timezoneData: CityDataType;
+};
+
+function BoxCountryDateTime({ timezoneData }: TimezoneDataPropsTypes) {
   const { timeStamp } = useTime({ timezoneData });
   const { weatherRecords, addCity } = useWeatherContext();
 
-  const cityName = timezoneData.city.toLowerCase();
+  const cityName = timezoneData.city_name.toLowerCase();
+  const countryName = timezoneData.country_name.toLowerCase();
 
   useEffect(() => {
     if (cityName) {
@@ -25,28 +30,28 @@ function BoxCountryDateTime({ timezoneData }: BoxCountryDateTimePropsTypes) {
     }
   }, [cityName]);
 
-  DisplayTemperature;
+  //DisplayTemperature
   const cityWeather = weatherRecords.find((item) => item.name.toLowerCase() === cityName);
   const tempData = cityWeather?.main.temp ?? 0;
   const tempColor = useCalculateEnvironment({ type: "temperature", data: tempData });
 
   //NavLink
-  const countryPath = formatForURL(timezoneData.country);
-  const path = `country/${countryPath}`;
+  const cityPath = formatForURL(cityName);
+  const path = `city/${cityPath}`;
 
   //DisplayDate
   const formattedDate = timeStamp ? dayjs(timeStamp).format("DD/MM/YYYY") : "";
 
   return (
-    <div className=' relative w-64 overflow-hidden rounded-3xl bg-night px-8 py-5 shadow-xl 2xl:h-48 2xl:w-72'>
+    <div className='relative w-64 overflow-hidden rounded-3xl bg-night px-8 py-5 shadow-xl 2xl:h-48 2xl:w-72'>
       <NavLink
         to={path}
-        aria-label={`View details of the time period and related information of ${countryPath}`}
+        aria-label={`View details of the time period and related information of ${cityPath}`}
         className='box_date_time__link'
       >
         <DisplayTemperature tempData={tempData} tempColor={tempColor.color} />
         <div className='relative z-20 flex h-full flex-col justify-between'>
-          <DisplayLocation timezoneData={timezoneData} />
+          <DisplayLocation city={cityName} country={countryName} />
           <div>
             <DisplayTime timeStamp={timeStamp} />
             <DisplayDate formattedDate={formattedDate} />
@@ -54,7 +59,7 @@ function BoxCountryDateTime({ timezoneData }: BoxCountryDateTimePropsTypes) {
         </div>
       </NavLink>
       <div className='absolute -bottom-1 -right-1 z-20 flex h-20 w-24 items-center justify-center'>
-        <TogglePinCountryButton countryName={countryPath} />
+        <TogglePinCountryButton cityName={cityPath} />
       </div>
     </div>
   );

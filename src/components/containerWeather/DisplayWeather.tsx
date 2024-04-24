@@ -1,4 +1,3 @@
-import { useTimeStampContext } from "../../context/dateTime/TimeStampContext";
 import { useWeatherContext } from "../../context/weather/WeatherContext";
 import BoxHumidity from "./BoxHumidity";
 import BoxPressure from "./BoxPressure";
@@ -8,10 +7,12 @@ import BoxWind from "./BoxWind";
 import useBoxWeather from "../../hook/useBoxWeather";
 import useCalculateEnvironment from "../../hook/useCalculateEnvironment";
 
-function DisplayWeather() {
-  const { timezone } = useTimeStampContext();
+type DisplayWeatherPropsType = {
+  cityName: string;
+};
+
+function DisplayWeather({ cityName }: DisplayWeatherPropsType) {
   const { weatherRecords } = useWeatherContext();
-  const cityName = timezone?.city;
   const cityWeather = weatherRecords.find((item) => item.name === cityName);
 
   //BoxWeather

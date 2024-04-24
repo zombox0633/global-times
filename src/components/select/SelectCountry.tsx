@@ -1,30 +1,19 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import SelectOption from "./SelectOption";
-import { GlobalTimeType, timezoneData } from "../../constraint/TIMEZONE_DATA";
-import { formatForURL } from "../../helper/formatForURL";
 import CountryTimezoneList from "./CountryTimezoneList";
+import useGetInterestGroupData from "../../hook/globalTimeService/useGetInterestGroupData";
 
 function SelectCountry() {
-  const navigate = useNavigate();
+  const {sortInterestData} = useGetInterestGroupData({page:1,size:12})
   const [showSelectItem, setShowSelectItem] = useState<boolean>(false);
-
-  const filterHighlight = timezoneData.filter((item) => item.highlighted);
-  const sortTimezoneData = filterHighlight.sort((a, b) => a.country.localeCompare(b.country));
-
-  const handleChangeTimezone = (timezone: GlobalTimeType) => {
-    const countryPath = formatForURL(timezone.country);
-    navigate(`/country/${countryPath}`);
-  };
 
   return (
     <div>
       <SelectOption showSelectItem={showSelectItem} setShowSelectItem={setShowSelectItem} />
       <CountryTimezoneList
         countryTimezoneData={{
-          sortTimezoneData: sortTimezoneData,
+          sortTimezoneData: sortInterestData,
           showSelectCountry: showSelectItem,
-          handleChangeTimezone: handleChangeTimezone,
         }}
       />
     </div>

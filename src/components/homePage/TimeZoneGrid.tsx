@@ -1,7 +1,7 @@
-import BoxCountryDateTime from "./BoxCountryDateTime";
+import { useEffect, useMemo, useState } from "react";
+// import BoxCountryDateTime from "./BoxCountryDateTime";
 import { usePinContext } from "../../context/pin/PinContext";
 import { timezoneData } from "../../constraint/TIMEZONE_DATA";
-import { useEffect, useMemo, useState } from "react";
 
 function TimeZoneGrid() {
   const { pins } = usePinContext();
@@ -57,7 +57,7 @@ function TimeZoneGrid() {
         )}
         {displayData.map((item, index) => (
           <div key={index} className=' flex items-center justify-center'>
-            <BoxCountryDateTime timezoneData={item} />
+            {/* <BoxCountryDateTime timezoneData={item} /> */}
           </div>
         ))}
       </div>

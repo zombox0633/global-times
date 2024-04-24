@@ -1,10 +1,11 @@
 import clsx from "clsx";
-import { GlobalTimeType } from "../../constraint/TIMEZONE_DATA";
+import { useNavigate } from "react-router-dom";
+import { formatForURL } from "../../helper/formatForURL";
+import { CityDataType } from "../../service/GlobalTimeService.type";
 
 type CountryTimezoneListDataPropsType = {
-  sortTimezoneData: GlobalTimeType[];
+  sortTimezoneData: CityDataType[];
   showSelectCountry: boolean;
-  handleChangeTimezone: (timezone: GlobalTimeType) => void;
 };
 
 type CountryTimezoneListPropsType = {
@@ -12,7 +13,13 @@ type CountryTimezoneListPropsType = {
 };
 
 function CountryTimezoneList({ countryTimezoneData }: CountryTimezoneListPropsType) {
-  const { sortTimezoneData, showSelectCountry, handleChangeTimezone } = countryTimezoneData;
+  const { sortTimezoneData, showSelectCountry} = countryTimezoneData;
+  const navigate = useNavigate();
+
+  const handleChangeTimezone = (timezone: CityDataType) => {
+    const cityPath = formatForURL(timezone.city_name);
+    navigate(`/city/${cityPath}`);
+  };
 
   return (
     <ul
@@ -28,12 +35,12 @@ function CountryTimezoneList({ countryTimezoneData }: CountryTimezoneListPropsTy
         <li key={`timezone-${index + 1}`} className='z-10 mb-1'>
           <button
             type='button'
-            aria-label={`Select time zone for ${item.country}`}
-            value={item.country}
+            aria-label={`Select time zone for ${item.country_name}`}
+            value={item.city_name}
             onClick={() => handleChangeTimezone(item)}
             className='w-[9.75rem] bg-night pl-4 text-start text-xl'
           >
-            {item.country}
+            {item.country_name}
           </button>
         </li>
       ))}

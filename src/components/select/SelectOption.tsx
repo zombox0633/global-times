@@ -14,7 +14,7 @@ function SelectOption({ showSelectItem, setShowSelectItem }: SelectOptionPropsTy
         onClick={() => setShowSelectItem((prev) => !prev)}
         className='focus__df relative z-[60] flex w-40 items-center justify-center bg-night pl-4'
       >
-        TimeZone
+        Timezone
         <span
           className={clsx("material-symbols-outlined my-1 ml-1", {
             " rotate-0": showSelectItem,
