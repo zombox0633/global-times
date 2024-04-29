@@ -4,7 +4,7 @@ import { formatForURL } from "../../helper/formatForURL";
 import { useNavigate } from "react-router-dom";
 import SuggestionsList from "./SuggestionsList";
 
-function SearchBarCounty() {  
+function SearchBarCounty() {
   const navigate = useNavigate();
   const [searchCounty, setSearchCounty] = useState<string>("");
   const [notFoundState, setNotFoundState] = useState<boolean>(false);

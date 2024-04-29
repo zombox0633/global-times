@@ -11,10 +11,10 @@ import useTime from "../../hook/useTime";
 import { formatForURL } from "../../helper/formatForURL";
 import { useWeatherContext } from "../../context/weather/WeatherContext";
 import useCalculateEnvironment from "../../hook/useCalculateEnvironment";
-import { CityDataType } from "../../service/GlobalTimeService.type";
+import { GlobalTimeDataType } from "../../service/GlobalTimeService.type";
 
 export type TimezoneDataPropsTypes = {
-  timezoneData: CityDataType;
+  timezoneData: GlobalTimeDataType;
 };
 
 function BoxCountryDateTime({ timezoneData }: TimezoneDataPropsTypes) {

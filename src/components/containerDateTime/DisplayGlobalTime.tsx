@@ -12,7 +12,7 @@ function DisplayGlobalTime({ timeStamp }: DisplayGlobalTimePropsType) {
   return (
     <div className='my-2 flex w-[13.5rem] justify-between sm:w-[21rem] lg:w-[28rem] xl:w-[28rem] 2xl:w-[37.5rem]'>
       <h1>{formattedTime}</h1>
-      <h1 className="pr-1">{formattedMeridiem}</h1>
+      <h1 className='pr-1'>{formattedMeridiem}</h1>
     </div>
   );
 }

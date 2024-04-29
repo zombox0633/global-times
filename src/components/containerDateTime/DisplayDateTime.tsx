@@ -4,10 +4,10 @@ import DisplayCity from "./DisplayCity";
 import TogglePinCountryButton from "../TogglePinCountryButton";
 
 import useTime from "../../hook/useTime";
-import { CityDataType } from "../../service/GlobalTimeService.type";
+import { GlobalTimeDataType } from "../../service/GlobalTimeService.type";
 
 type DisplayDateTimePropsType = {
-  data: CityDataType;
+  data: GlobalTimeDataType;
 };
 
 function DisplayDateTime({ data }: DisplayDateTimePropsType) {

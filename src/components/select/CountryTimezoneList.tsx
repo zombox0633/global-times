@@ -1,10 +1,10 @@
 import clsx from "clsx";
 import { useNavigate } from "react-router-dom";
 import { formatForURL } from "../../helper/formatForURL";
-import { CityDataType } from "../../service/GlobalTimeService.type";
+import { GlobalTimeDataType } from "../../service/GlobalTimeService.type";
 
 type CountryTimezoneListDataPropsType = {
-  sortTimezoneData: CityDataType[];
+  sortTimezoneData: GlobalTimeDataType[];
   showSelectCountry: boolean;
 };
 
@@ -13,10 +13,10 @@ type CountryTimezoneListPropsType = {
 };
 
 function CountryTimezoneList({ countryTimezoneData }: CountryTimezoneListPropsType) {
-  const { sortTimezoneData, showSelectCountry} = countryTimezoneData;
+  const { sortTimezoneData, showSelectCountry } = countryTimezoneData;
   const navigate = useNavigate();
 
-  const handleChangeTimezone = (timezone: CityDataType) => {
+  const handleChangeTimezone = (timezone: GlobalTimeDataType) => {
     const cityPath = formatForURL(timezone.city_name);
     navigate(`/city/${cityPath}`);
   };

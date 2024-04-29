@@ -1,5 +1,7 @@
-export interface GlobalTimePageableType {
-  content: CityDataType[];
+export type GlobalTimePageableReturnDataType = GlobalTimePageableType<GlobalTimeDataType>;
+
+export interface GlobalTimePageableType<T> {
+  content: T[];
   pageable: PageableType;
   last: boolean;
   totalElements: number;
@@ -12,9 +14,8 @@ export interface GlobalTimePageableType {
   empty: boolean;
 }
 
-export interface CityDataType {
+export interface GlobalTimeDataType {
   id: string;
-  city_id: string;
   city_name: string;
   country_name: string;
   timezone_name: string;

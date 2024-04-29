@@ -1,11 +1,11 @@
 import { PinsType } from "../../context/pin/PinContext";
 
 type DisplayPinsCityPropsType = {
-  pins : PinsType
-}
+  pins: PinsType;
+};
 
-function DisplayPinsCity({pins}:DisplayPinsCityPropsType) {
-  const pinCitiesMap = pins.map((item) => item.name)
+function DisplayPinsCity({ pins }: DisplayPinsCityPropsType) {
+  const pinCitiesMap = pins.map((item) => item.name);
   return (
     <div className="justify-center' flex flex-col items-center">
       <div className='w-[90dvw] sm:max-w-[45rem] lg:max-w-[76rem] 2xl:w-[80dvw] 2xl:max-w-[85rem]'>

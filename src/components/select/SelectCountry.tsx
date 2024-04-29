@@ -4,7 +4,7 @@ import CountryTimezoneList from "./CountryTimezoneList";
 import useGetInterestGroupData from "../../hook/globalTimeService/useGetInterestGroupData";
 
 function SelectCountry() {
-  const {sortInterestData} = useGetInterestGroupData({page:1,size:12})
+  const { sortInterestData } = useGetInterestGroupData({ page: 1, size: 12 });
   const [showSelectItem, setShowSelectItem] = useState<boolean>(false);
 
   return (

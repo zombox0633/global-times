@@ -1,7 +1,7 @@
-import { useEffect, useMemo, useState } from "react";
-// import BoxCountryDateTime from "./BoxCountryDateTime";
+import { useEffect, useState } from "react";
+//import BoxCountryDateTime from "./BoxCountryDateTime";
 import { usePinContext } from "../../context/pin/PinContext";
-import { timezoneData } from "../../constraint/TIMEZONE_DATA";
+//import { timezoneData } from "../../constraint/TIMEZONE_DATA";
 
 function TimeZoneGrid() {
   const { pins } = usePinContext();
@@ -14,20 +14,20 @@ function TimeZoneGrid() {
     }
   }, [displayMode, hasPin]);
 
-  const displayData = useMemo(() => {
-    //pins
-    const pinCountriesMap = pins.map((item) => item.name);
-    const filterPinCountry = timezoneData.filter((item) =>
-      pinCountriesMap.includes(item.country.toLowerCase()),
-    );
+  // const displayData = useMemo(() => {
+  //   //pins
+  //   const pinCountriesMap = pins.map((item) => item.name);
+  //   const filterPinCountry = timezoneData.filter((item) =>
+  //     pinCountriesMap.includes(item.country.toLowerCase()),
+  //   );
 
-    //highlighted
-    const filterHighlight = timezoneData.filter((item) => item.highlighted).slice(0, 8);
-    const sortTimezoneData = filterHighlight.sort((a, b) => a.country.localeCompare(b.country));
+  //   //highlighted
+  //   const filterHighlight = timezoneData.filter((item) => item.highlighted).slice(0, 8);
+  //   const sortTimezoneData = filterHighlight.sort((a, b) => a.country.localeCompare(b.country));
 
-    const data = displayMode === "recommended" ? sortTimezoneData : filterPinCountry;
-    return data;
-  }, [displayMode, pins]);
+  //   const data = displayMode === "recommended" ? sortTimezoneData : filterPinCountry;
+  //   return data;
+  // }, [displayMode, pins]);
 
   return (
     <div className='flex flex-col items-center justify-center'>
@@ -55,11 +55,11 @@ function TimeZoneGrid() {
             </button>
           </div>
         )}
-        {displayData.map((item, index) => (
+        {/* {displayData.map((item, index) => (
           <div key={index} className=' flex items-center justify-center'>
-            {/* <BoxCountryDateTime timezoneData={item} /> */}
+            <BoxCountryDateTime timezoneData={item} />
           </div>
-        ))}
+        ))} */}
       </div>
     </div>
   );
