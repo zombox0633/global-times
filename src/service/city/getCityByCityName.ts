@@ -1,7 +1,7 @@
 import client from "../../config/axiosConfig";
 import { CancelTokenSource } from "axios";
 import { onHandleErrorFromAPI } from "../../config/serviceApi";
-import { CityDataType } from "../GlobalTimeService.type";
+import { GlobalTimeDataType } from "../GlobalTimeService.type";
 import { AxiosReturn } from "../../config/serviceApi.type";
 
 export type GetCityByCityNamePropsType = {
@@ -12,9 +12,9 @@ export type GetCityByCityNamePropsType = {
 async function getCityByCityName({
   cityName,
   cancelToken,
-}: GetCityByCityNamePropsType): AxiosReturn<CityDataType> {
+}: GetCityByCityNamePropsType): AxiosReturn<GlobalTimeDataType> {
   try {
-    const response = await client.get<CityDataType>(`/v1/city/name/${cityName}`, {
+    const response = await client.get<GlobalTimeDataType>(`/v1/city/name/${cityName}`, {
       cancelToken: cancelToken?.token,
     });
     return [response.data, null];

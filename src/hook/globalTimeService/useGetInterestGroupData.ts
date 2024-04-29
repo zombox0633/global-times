@@ -3,7 +3,7 @@ import { AppDispatch, RootType } from "../../redux/store";
 import { useEffect } from "react";
 import { fetchInterestGroupData } from "../../redux/interest/getInterestGroupData.thunk";
 import { GetInterestGroupDataPropsType } from "../../service/interest/getInterestGroupData";
-import { CityDataType } from "../../service/GlobalTimeService.type";
+import { InterestDataType } from "../../service/interest/getInterestGroupData.type";
 
 function useGetInterestGroupData({ page, size }: GetInterestGroupDataPropsType) {
   const dispatch = useDispatch<AppDispatch>();
@@ -14,7 +14,7 @@ function useGetInterestGroupData({ page, size }: GetInterestGroupDataPropsType) 
   }, [dispatch, page, size]);
 
   const sortInterestData = data?.content
-    ? [...data.content].sort((a: CityDataType, b: CityDataType) =>
+    ? [...data.content].sort((a: InterestDataType, b: InterestDataType) =>
         a.country_name.localeCompare(b.country_name),
       )
     : [];

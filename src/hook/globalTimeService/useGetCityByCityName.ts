@@ -12,7 +12,6 @@ function useGetCityByCityName({ cityName }: GetCityByCityNamePropsType) {
     dispatch(fetchCityByCityName({ cityName }));
   }, [dispatch, cityName]);
 
-
   return {
     data,
     loading,

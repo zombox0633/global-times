@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { GlobalTimePageableType } from "../../service/GlobalTimeService.type";
 import { initialStateType } from "../redux.type";
 import { fetchInterestGroupData } from "./getInterestGroupData.thunk";
+import { InterestReturnType } from "../../service/interest/getInterestGroupData.type";
 
-const initialState: initialStateType<GlobalTimePageableType> = {
+const initialState: initialStateType<InterestReturnType> = {
   data: null,
   loading: false,
   error: null,

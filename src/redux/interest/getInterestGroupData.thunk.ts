@@ -3,17 +3,12 @@ import { checkErrorMessage } from "../../helper/errorStatus";
 import getInterestGroupData, {
   GetInterestGroupDataPropsType,
 } from "../../service/interest/getInterestGroupData";
-import axios from "axios";
-import { generateCancelMessage } from "../cancelMessage";
+import { createCancellableSource } from "../cancellation";
 
 export const fetchInterestGroupData = createAsyncThunk(
   "getInterestGroupDataSlice/fetchInterestGroup",
   async ({ page, size }: GetInterestGroupDataPropsType, { rejectWithValue, signal }) => {
-    const source = axios.CancelToken.source();
-
-    signal.addEventListener("abort", () => {
-      source.cancel(generateCancelMessage("fetchInterestGroup"));
-    });
+    const source = createCancellableSource(signal, "fetchInterestGroup");
 
     try {
       const [success, error] = await getInterestGroupData({ page, size, cancelToken: source });
