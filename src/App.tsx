@@ -14,7 +14,7 @@ function App() {
       <WeatherProvider>
         <Routes>
           <Route path='/' index element={<HomePage />} caseSensitive />
-          <Route path='/country' element={<CountryPage />} caseSensitive />
+          <Route path='country' element={<CountryPage />} caseSensitive />
           <Route path='city' element={<Navigate to='city/thailand' replace />} />
           <Route path='city/:cityPath' element={<DateTimeCityPage />} caseSensitive />
           <Route path='login' element={<LoginPage />} caseSensitive />

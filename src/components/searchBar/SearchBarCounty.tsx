@@ -1,33 +1,32 @@
-import { useMemo, useState } from "react";
-import { timezoneData } from "../../constraint/TIMEZONE_DATA";
+import { useEffect, useState } from "react";
 import { formatForURL } from "../../helper/formatForURL";
 import { useNavigate } from "react-router-dom";
-import SuggestionsList from "./SuggestionsList";
+import SuggestionsListMemo from "./SuggestionsList";
+import useGetCountryWithSearch from "../../hook/globalTimeService/useGetCountryWithSearch";
 
 function SearchBarCounty() {
   const navigate = useNavigate();
   const [searchCounty, setSearchCounty] = useState<string>("");
+  const [debouncedSearch, setDebouncedSearch] = useState<string>("");
   const [notFoundState, setNotFoundState] = useState<boolean>(false);
 
-  const suggestions = useMemo(() => {
-    if (searchCounty) {
-      const suggestionData = timezoneData
-        .filter((item) => item.country.toLowerCase().startsWith(searchCounty.toLowerCase()))
-        .slice(0, 5);
+  const { data } = useGetCountryWithSearch({ countryName: debouncedSearch, page: 1, size: 4 });
 
-      const sortSuggestion = suggestionData.sort((a, b) => a.country.localeCompare(b.country));
-      return sortSuggestion;
-    }
+  useEffect(() => {
+    const searchTimeout = setTimeout(() => {
+      if (searchCounty.trim()) {
+        setDebouncedSearch(searchCounty);
+      }
+    }, 1000);
 
-    return [];
+    return () => clearTimeout(searchTimeout);
   }, [searchCounty]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setNotFoundState(false);
 
-    const filterCounty = timezoneData.some((item) => item.country === searchCounty);
-    if (filterCounty) {
+    if (searchCounty) {
       const countryPath = formatForURL(searchCounty);
       navigate(`/country/${countryPath}`);
     } else {
@@ -68,7 +67,10 @@ function SearchBarCounty() {
       >
         search
       </button>
-      <SuggestionsList suggestions={suggestions} setSearchCounty={setSearchCounty} />
+      <SuggestionsListMemo
+        suggestions={data ? data.content : []}
+        setSearchCounty={setSearchCounty}
+      />
       {notFoundState && (
         <div className=' absolute bottom-12 right-1'>
           <p className='text-red-500'>County not found. Please try again.</p>

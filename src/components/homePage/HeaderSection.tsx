@@ -6,7 +6,7 @@ function HeaderSection() {
       <div className='mb-12'>
         <h1 className=' text-center text-5xl'>Time Zone</h1>
       </div>
-      <SearchBarCounty /> {/* ต้องแก้ไข  */}
+      <SearchBarCounty />
     </div>
   );
 }

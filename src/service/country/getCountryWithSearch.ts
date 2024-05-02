@@ -2,7 +2,7 @@ import { CancelTokenSource } from "axios";
 import client from "../../config/axiosConfig";
 import { onHandleErrorFromAPI } from "../../config/serviceApi";
 import { AxiosReturn } from "../../config/serviceApi.type";
-import { GetCityWithSearchReturnDataType } from "../city/getCityWithSearch.type";
+import { GetCountryWithSearchReturnDataType } from "./getCountryWithSearch.type";
 
 export type GetCountryWithSearchPropsType = {
   countryName: string;
@@ -16,9 +16,9 @@ async function getCountryWithSearch({
   page,
   size,
   cancelToken,
-}: GetCountryWithSearchPropsType): AxiosReturn<GetCityWithSearchReturnDataType> {
+}: GetCountryWithSearchPropsType): AxiosReturn<GetCountryWithSearchReturnDataType> {
   try {
-    const response = await client.get<GetCityWithSearchReturnDataType>(
+    const response = await client.get<GetCountryWithSearchReturnDataType>(
       `/v1/country/search?name=${countryName}&page=${page}&size=${size}`,
       { cancelToken: cancelToken?.token },
     );

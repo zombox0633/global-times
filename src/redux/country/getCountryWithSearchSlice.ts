@@ -5,7 +5,7 @@ import getCountryWithSearch, {
 } from "../../service/country/getCountryWithSearch";
 import { checkErrorMessage } from "../../helper/errorStatus";
 import createGenericSlice from "../createGenericSlice";
-import { GetCityWithSearchReturnDataType } from "../../service/city/getCityWithSearch.type";
+import { GetCountryWithSearchReturnDataType } from "../../service/country/getCountryWithSearch.type";
 
 export const fetchCountryWithSearch = createAsyncThunk(
   "getCountryWithSearchSlice/fetchCountryWithSearch",
@@ -34,7 +34,7 @@ export const fetchCountryWithSearch = createAsyncThunk(
 );
 
 export const getCountryWithSearchSlice = createGenericSlice<
-  GetCityWithSearchReturnDataType,
+  GetCountryWithSearchReturnDataType,
   GetCountryWithSearchPropsType
 >({
   name: "getCountryWithSearch",
