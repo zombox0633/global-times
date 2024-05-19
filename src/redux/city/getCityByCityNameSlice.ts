@@ -1,11 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import createGenericSlice from "../createGenericSlice";
 import getCityByCityName, {
+  GetCityByCityNameData,
   GetCityByCityNamePropsType,
 } from "../../service/city/getCityByCityName";
 import { createCancellableSource } from "../cancellation";
 import { checkErrorMessage } from "../../helper/errorStatus";
-import { GlobalTimeDataType } from "../../service/GlobalTimeService.type";
 
 export const fetchCityByCityName = createAsyncThunk(
   "getCityByCityNameSlice/fetchCityByCityName",
@@ -26,7 +26,7 @@ export const fetchCityByCityName = createAsyncThunk(
 );
 
 export const getCityByCityNameSlice = createGenericSlice<
-  GlobalTimeDataType,
+  GetCityByCityNameData,
   GetCityByCityNamePropsType
 >({
   name: "getCityByCityName",

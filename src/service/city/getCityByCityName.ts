@@ -9,12 +9,14 @@ export type GetCityByCityNamePropsType = {
   cancelToken?: CancelTokenSource;
 };
 
+export type GetCityByCityNameData = GlobalTimeDataType[];
+
 async function getCityByCityName({
   cityName,
   cancelToken,
-}: GetCityByCityNamePropsType): AxiosReturn<GlobalTimeDataType> {
+}: GetCityByCityNamePropsType): AxiosReturn<GetCityByCityNameData> {
   try {
-    const response = await client.get<GlobalTimeDataType>(`/v1/city/name/${cityName}`, {
+    const response = await client.get<GetCityByCityNameData>(`/v1/city/name?name=${cityName}`, {
       cancelToken: cancelToken?.token,
     });
     return [response.data, null];
