@@ -79,4 +79,10 @@
   .authentication__input {
     @apply h-10 rounded-md pl-4 text-black placeholder:text-black/70;
   }
+
+  /* NavLink Style *add your own color */
+  .navlink__style {
+    @apply rounded-md hover:cursor-pointer 
+    hover:shadow-md hover:transition-all hover:duration-700;
+  }
 }

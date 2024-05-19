@@ -4,6 +4,7 @@ export default {
   theme: {
     fontFamily: {
       Oswald: ["Oswald", "sans-seri"],
+      BebasNeue: ["Bebas Neue", "sans-serif"],
     },
     extend: {
       colors: {
