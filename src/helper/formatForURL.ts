@@ -3,7 +3,18 @@ export const firstLetterUppercase = (text: string): string => {
 };
 
 export const formatForURL = (text: string): string => {
-  return text.toLowerCase().trim().replaceAll(" ", "-");
+  return text.toLowerCase().trim().replaceAll(" ", "-").replaceAll(".", "_");
+};
+
+export const kebabToTitleCase = (str: string | undefined): string => {
+  if (str) {
+    return str
+      .split("-")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+  }
+
+  return " ";
 };
 
 export const slugToText = (text: string): string => {
