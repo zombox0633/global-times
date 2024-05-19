@@ -10,7 +10,7 @@ function DisplayRecommendedCities() {
   return (
     <div className='flex flex-col items-center justify-center'>
       <div className='w-[90dvw] sm:max-w-[45rem] lg:max-w-[76rem] 2xl:w-[80dvw] 2xl:max-w-[85rem]'>
-        <div className=' mb-10  px-[25%] sm:px-8 md:px-16  xl:px-8 2xl:px-[2%]'>
+        <div className=' mb-8 px-[25%] sm:px-8 md:px-16  xl:px-8 2xl:px-[2%]'>
           <h3>Recommended cities</h3>
         </div>
         {loading && (

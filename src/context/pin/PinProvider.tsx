@@ -15,10 +15,16 @@ export const PinProvider = ({ children }: ContextProviderPropsType) => {
 
   const togglePin = useCallback((pinName: string) => {
     setPins((prev) => {
-      const exists = prev.some((item) => item.name === pinName.toLowerCase());
-      const newPins = exists
-        ? prev.filter((item) => item.name !== pinName.toLowerCase())
-        : [...prev, { name: pinName.toLowerCase() }];
+      const pinNameLowerCase = pinName.toLowerCase();
+      const exists = prev.some((item) => item.name === pinNameLowerCase);
+
+      let newPins = exists
+        ? prev.filter((item) => item.name !== pinNameLowerCase)
+        : [...prev, { name: pinNameLowerCase }];
+
+      if (newPins.length > 4) {
+        newPins = newPins.slice(1);
+      }
 
       return newPins;
     });
