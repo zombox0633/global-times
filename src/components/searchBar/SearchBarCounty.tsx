@@ -29,10 +29,13 @@ function SearchBarCounty() {
     if (searchCounty) {
       const countryPath = formatForURL(searchCounty);
       navigate(`/country/${countryPath}`);
+      setSearchCounty("");
     } else {
       setNotFoundState(true);
     }
   };
+
+  const filteredSuggestions = searchCounty && data ? data.content : [];
 
   return (
     <form onSubmit={handleSubmit} className='relative flex justify-center '>
@@ -67,10 +70,7 @@ function SearchBarCounty() {
       >
         search
       </button>
-      <SuggestionsListMemo
-        suggestions={data ? data.content : []}
-        setSearchCounty={setSearchCounty}
-      />
+      <SuggestionsListMemo suggestions={filteredSuggestions} setSearchCounty={setSearchCounty} />
       {notFoundState && (
         <div className=' absolute bottom-12 right-1'>
           <p className='text-red-500'>County not found. Please try again.</p>
