@@ -11,7 +11,7 @@ type DisplayDateTimePropsType = {
 };
 
 function DisplayDateTime({ data }: DisplayDateTimePropsType) {
-  const { timeStamp } = useTime({ timezoneData: data });
+  const { timeStamp } = useTime({ timezoneName: data.timezone_name });
   const countryName: string = data?.country_name ?? "";
   const cityName: string = data?.city_name ?? "";
 

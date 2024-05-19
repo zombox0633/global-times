@@ -18,7 +18,7 @@ export type TimezoneDataPropsTypes = {
 };
 
 function BoxCountryDateTime({ timezoneData }: TimezoneDataPropsTypes) {
-  const { timeStamp } = useTime({ timezoneData });
+  const { timeStamp } = useTime({ timezoneName: timezoneData.timezone_name });
   const { weatherRecords, addCity } = useWeatherContext();
 
   const cityName = timezoneData.city_name.toLowerCase();
@@ -37,7 +37,7 @@ function BoxCountryDateTime({ timezoneData }: TimezoneDataPropsTypes) {
 
   //NavLink
   const cityPath = formatForURL(cityName);
-  const path = `city/${cityPath}`;
+  const path = `/city/${cityPath}`;
 
   //DisplayDate
   const formattedDate = timeStamp ? dayjs(timeStamp).format("DD/MM/YYYY") : "";
