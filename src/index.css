@@ -75,6 +75,11 @@
     @apply text-end text-xs lg:text-sm;
   }
 
+  /* layout content */
+  .layout__content {
+    @apply w-[90dvw] sm:max-w-[45rem] lg:max-w-[76rem] 2xl:w-[80dvw] 2xl:max-w-[85rem];
+  }
+
   /* SignUpPage && LoginPage */
   .authentication__input {
     @apply h-10 rounded-md pl-4 text-black placeholder:text-black/70;
@@ -84,5 +89,10 @@
   .navlink__style {
     @apply rounded-md hover:cursor-pointer 
     hover:shadow-md hover:transition-all hover:duration-700;
+  }
+
+  /* AuthenticationForm bg*/
+  .bg__gradient {
+    @apply bg-gradient-to-br from-[#19547b] to-[#ffd89b];
   }
 }
