@@ -7,12 +7,12 @@ export const onHandleErrorFromAPI = (error: unknown): [null, string] => {
     return [null, "Request was cancelled"];
   }
   if (axios.isAxiosError<APIResponseErrorType>(error)) {
-    const status = error.response?.status ?? 0;
+    const status = error.response?.status ?? 503;
 
     if (status in statusMessageError) {
       return [null, statusMessageError[status].message];
     } else {
-      const defaultMessage = "An unexpected error occurred. Please try again later";
+      const defaultMessage = "An unexpected error occurred. Please try again later.";
       const responseMessage = error.response?.data.error?.message ?? defaultMessage;
       return [null, responseMessage];
     }

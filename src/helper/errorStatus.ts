@@ -6,18 +6,24 @@ export const statusMessageError: {
   [key: number]: { message: string };
 } = {
   400: {
-    message: "Bad Request. Please verify your input.",
+    message: "Bad Request",
   },
   401: {
-    message: "Unauthorized. Please check your credentials.",
+    message: "Unauthorized",
   },
   403: {
-    message: "Forbidden. You do not have permission to perform this action.",
+    message: "Forbidden",
   },
   404: {
-    message: "Not Found. The resource you are looking for is not available.",
+    message: "Not Found",
   },
   500: {
-    message: "Internal Server Error. Please try again later.",
+    message: "Internal Server Error",
+  },
+  503:{
+    message: "Service Unavailable"
+  },
+  504:{
+    message: "Gateway Timeout"
   },
 };
