@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import DisplayDateTime from "../components/containerDateTime/DisplayDateTime";
 import DisplayWeather from "../components/containerWeather/DisplayWeather";
-// import ButtonNavigateToHome from "../components/ButtonNavigateToHome";
 import { useWeatherContext } from "../context/weather/WeatherContext";
 import useGetCityByCityName from "../hook/globalTimeService/useGetCityByCityName";
 import { formatForURL } from "../helper/formatForURL";
@@ -26,11 +25,7 @@ function DateTimeCityPage() {
 
   return (
     <div>
-      {/* <div className=' absolute left-0 top-0 z-[60] h-24 w-full bg-eerieBlack' /> */}
       <div className='grid h-[90dvh] grid-cols-6 grid-rows-3 sm:grid-cols-8'>
-        {/* <div className='col-start-1 row-start-1 h-20 sm:col-end-2'>
-          <ButtonNavigateToHome />
-        </div> */}
         <div
           className=' col-start-2 col-end-9 row-start-2 row-end-3 flex justify-center sm:col-start-3 sm:justify-end
           md:col-start-4 md:col-end-8 lg:col-start-5'
