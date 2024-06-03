@@ -47,7 +47,7 @@ function Dropdown({ label, data }: DropdownPropsType) {
             {data.map((item, index) => (
               <li key={index} className='my-1 hover:bg-white/10 '>
                 <NavLink
-                  to={`/${item.toLowerCase()}`}
+                  to={`/continent/${item.toLowerCase()}`}
                   onClick={() => setShowDropdown(false)}
                   className='pl-6 pr-12 font-BebasNeue text-lg md:text-xl lg:text-2xl'
                 >
