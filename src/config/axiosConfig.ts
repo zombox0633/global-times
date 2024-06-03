@@ -10,15 +10,20 @@ const axiosApiInstance = axios.create({
 axiosApiInstance.interceptors.request.use(
   (config) => {
     config.headers["X-API-KEY"] = import.meta.env.VITE_API_VALUE;
+
     const secret = localStorage.getItem("secret");
-    if (secret) {
-      const jwtData = jwtDecode<{ id: string; iat: number; exp: number }>(secret);
+    const { jwt } = secret && JSON.parse(secret);
+
+    if (jwt) {
+      const jwtData = jwtDecode<{ id: string; iat: number; exp: number }>(jwt);
 
       //Check is expired.
       const isExpired = dayjs.unix(jwtData.exp).diff(dayjs()) < 1;
       if (isExpired) {
         localStorage.removeItem("secret");
+        return config;
       }
+      return config;
     }
     return config;
   },
