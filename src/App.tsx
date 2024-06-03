@@ -9,8 +9,11 @@ import SignUpPage from "./pages/SignUpPage";
 import CountryPage from "./pages/CountryPage";
 import Layout from "./components/Layout";
 import ContinentPage from "./pages/ContinentPage";
+import useRegisterWithSecret from "./hook/user/useRegisterWithSecret";
 
 function App() {
+  useRegisterWithSecret();
+
   return (
     <PinProvider>
       <WeatherProvider>
