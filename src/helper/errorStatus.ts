@@ -20,10 +20,10 @@ export const statusMessageError: {
   500: {
     message: "Internal Server Error",
   },
-  503:{
-    message: "Service Unavailable"
+  503: {
+    message: "Service Unavailable",
   },
-  504:{
-    message: "Gateway Timeout"
+  504: {
+    message: "Gateway Timeout",
   },
 };
