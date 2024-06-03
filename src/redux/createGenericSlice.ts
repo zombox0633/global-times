@@ -12,12 +12,12 @@ type AsyncThunkConfig = {
   rejectedMeta?: unknown;
 };
 
-export type CreateGenericSlice<T, Props> = {
+export type CreateGenericSliceType<T, Props> = {
   name: string;
   fetchThunk: AsyncThunk<T, Props, AsyncThunkConfig>;
 };
 
-function createGenericSlice<T, Props>({ name, fetchThunk }: CreateGenericSlice<T, Props>) {
+function createGenericSlice<T, Props>({ name, fetchThunk }: CreateGenericSliceType<T, Props>) {
   const initialState: initialStateType<T> = {
     data: null,
     loading: false,
@@ -27,7 +27,13 @@ function createGenericSlice<T, Props>({ name, fetchThunk }: CreateGenericSlice<T
   const genericSlice = createSlice({
     name,
     initialState,
-    reducers: {},
+    reducers: {
+      clearData: (state) => {
+        state.data = null;
+        state.loading = false;
+        state.error = null;
+      },
+    },
     extraReducers: (builder) => {
       builder.addCase(fetchThunk.pending, (state) => {
         state.loading = true;
