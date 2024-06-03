@@ -1,4 +1,4 @@
-import { firstLetterUppercase } from "../../helper/formatForURL";
+import { capitalizeFirstLetter } from "../../helper/formatForURL";
 
 type DisplayLocationPropType = {
   country: string;
@@ -6,8 +6,8 @@ type DisplayLocationPropType = {
 };
 
 function DisplayLocation({ country, city }: DisplayLocationPropType) {
-  const countryName = firstLetterUppercase(country);
-  const cityName = firstLetterUppercase(city);
+  const countryName = capitalizeFirstLetter(country);
+  const cityName = capitalizeFirstLetter(city);
 
   return (
     <div>
