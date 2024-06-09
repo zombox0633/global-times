@@ -1,11 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import getRegister, {
-  GetRegisterPropsType,
-  GetRegisterReturnType,
-} from "../../service/user/getRegister";
+import getRegister, { GetRegisterPropsType } from "../../service/user/getRegister";
 import { createCancellableSource } from "../cancellation";
 import { checkErrorMessage } from "../../helper/errorStatus";
 import createGenericSlice from "../createGenericSlice";
+import { UserType } from "../../service/user/user.type";
 
 export const fetchGetRegister = createAsyncThunk(
   "getRegisterSlice/fetchGetRegister",
@@ -25,7 +23,7 @@ export const fetchGetRegister = createAsyncThunk(
   },
 );
 
-export const getRegisterSlice = createGenericSlice<GetRegisterReturnType, GetRegisterPropsType>({
+export const getRegisterSlice = createGenericSlice<UserType, GetRegisterPropsType>({
   name: "getRegister",
   fetchThunk: fetchGetRegister,
 });

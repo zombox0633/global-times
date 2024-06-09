@@ -2,6 +2,7 @@ import { CancelTokenSource } from "axios";
 import { onHandleErrorFromAPI } from "../../config/serviceApi";
 import { AxiosReturn } from "../../config/serviceApi.type";
 import client from "../../config/axiosConfig";
+import { UserType } from "./user.type";
 
 export type GetRegisterPropsType = {
   email: string;
@@ -9,24 +10,13 @@ export type GetRegisterPropsType = {
   cancelToken?: CancelTokenSource;
 };
 
-export type GetRegisterReturnType = {
-  id: string;
-  email: string;
-  password: string;
-  name: string;
-  birthday: string;
-  role: string;
-  createTimestamp: string;
-  lastUpdatedTimestamp: string;
-};
-
 async function getRegister({
   email,
   jwt,
   cancelToken,
-}: GetRegisterPropsType): AxiosReturn<GetRegisterReturnType> {
+}: GetRegisterPropsType): AxiosReturn<UserType> {
   try {
-    const response = await client.post<GetRegisterReturnType>(
+    const response = await client.post<UserType>(
       "/v1/user/profile",
       {
         email: email,
