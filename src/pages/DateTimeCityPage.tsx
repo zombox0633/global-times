@@ -5,12 +5,31 @@ import DisplayWeather from "../components/containerWeather/DisplayWeather";
 import { useWeatherContext } from "../context/weather/WeatherContext";
 import useGetCityByCityName from "../hook/globalTimeService/useGetCityByCityName";
 import { formatForURL } from "../helper/formatForURL";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../redux/store";
+import { setError, startLoading, stopLoading } from "../redux/loadingSlice";
 
 function DateTimeCityPage() {
+  const dispatch = useDispatch<AppDispatch>();
   const { cityPath } = useParams();
   const formatCityName = (cityPath && formatForURL(cityPath)) ?? "";
-  const { data } = useGetCityByCityName({ cityName: formatCityName });
+  const { data, error } = useGetCityByCityName({ cityName: formatCityName });
   const { weatherRecords, addCity } = useWeatherContext();
+
+  useEffect(() => {
+    dispatch(startLoading());
+    const timeout = setTimeout(() => {
+      if (error) {
+        dispatch(setError(error));
+      } else if (data) {
+        dispatch(stopLoading());
+      }
+    }, 2000);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [data, error, dispatch]);
 
   const cityName = data ? data[0].city_name : "";
   const findWeatherData = weatherRecords.some(
