@@ -20,7 +20,7 @@ async function authenticateUser({
 }: AuthenticateUserPropsType): AxiosReturn<AuthenticateUserReturnType> {
   try {
     const response = await client.post<AuthenticateUserReturnType>(
-      "/v1/user/login",
+      "/v1/auth/login",
       {
         email: email,
         password: password,
