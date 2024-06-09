@@ -27,7 +27,7 @@ function CountryPage() {
           </div>
           {error && (
             <div>
-              <h3 className=' text-red-500'>Error: {error}</h3>
+              <h3 className=' text-red-500'>{error}</h3>
             </div>
           )}
           <div>
