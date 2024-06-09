@@ -2,10 +2,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { unwrapResult } from "@reduxjs/toolkit";
-import { fetchAuthenticate } from "../../redux/authentication/authenticateSlice";
-import { clearRegisterData, fetchGetRegister } from "../../redux/authentication/getRegisterSlice";
+import { fetchAuthenticate } from "../../redux/user/authenticateSlice";
+import { clearRegisterData, fetchGetRegister } from "../../redux/user/getRegisterSlice";
 import { AppDispatch } from "../../redux/store";
-import { clearAuthData, setAuthData } from "../../redux/authentication/authDataSlice";
+import { clearAuthData, setAuthData } from "../../redux/user/authDataSlice";
+import { handleInputChange } from "../../helper/utils";
 
 type DataForVerifyType = {
   email: string;
@@ -23,12 +24,8 @@ function useAuthentication() {
     password: "",
   });
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    setDataForVerify((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    handleInputChange<DataForVerifyType>(event, setDataForVerify);
   };
 
   const onAuthenticate = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -47,6 +44,7 @@ function useAuthentication() {
         );
         const resultRegisterData = unwrapResult(resultRegister);
         if (resultRegisterData) {
+          localStorage.setItem("isAuthenticated", "true");
           const authData = {
             email: dataForVerify.email,
             jwt: resultAuthenticateData.jwt,
@@ -56,7 +54,7 @@ function useAuthentication() {
 
           setAuthStatus("Successfully authenticated.");
           setTimeout(() => {
-            navigate("/");
+            navigate("/", { replace: true });
           }, 500);
         } else {
           setAuthStatus("Registration failed.");
@@ -65,6 +63,7 @@ function useAuthentication() {
         setAuthStatus("An error occurred during authentication.");
       }
     } catch (error) {
+      console.error(error);
       setAuthStatus("Invalid credentials. Please try again.");
     } finally {
       setIsProcessing(false);
@@ -81,7 +80,7 @@ function useAuthentication() {
   return {
     authStatus,
     isProcessing,
-    handleInputChange,
+    handleChange,
     onAuthenticate,
     onSignOut,
   };
