@@ -92,7 +92,64 @@
   }
 
   /* AuthenticationForm bg*/
-  .bg__gradient {
+  .bg__grad1 {
     @apply bg-gradient-to-br from-[#19547b] to-[#ffd89b];
+  }
+
+  .bg__grad2 {
+    @apply bg-gradient-to-bl from-[#09203f] to-[#e7f0fd];
+  }
+
+  /* UniversalLoader */
+  .opacity__transition {
+    transition:
+      opacity 0.5s ease,
+      visibility 0.5s ease;
+  }
+
+  .loading__visible {
+    @apply visible opacity-100;
+  }
+
+  .loading__hidden {
+    @apply opacity__transition invisible opacity-0;
+  }
+
+  .loader {
+    @apply m-6 h-8 w-8 rounded-full bg-white
+      drop-shadow-md;
+  }
+
+  .pulse1 {
+    animation: shadowPulse 1.2s linear infinite;
+    animation-delay: 0s;
+    --pulse-color: #f9dc5c;
+    @apply loader;
+  }
+
+  .pulse2 {
+    animation: shadowPulse 1.2s linear infinite;
+    animation-delay: 0.4s;
+    --pulse-color: #ed254e;
+    @apply loader;
+  }
+
+  .pulse3 {
+    animation: shadowPulse 1.2s linear infinite;
+    animation-delay: 0.8s;
+    --pulse-color: #06d6a0;
+    @apply loader;
+  }
+
+  @keyframes shadowPulse {
+    33% {
+      @apply bg-white;
+    }
+    66% {
+      background-color: var(--pulse-color);
+    }
+    100% {
+      @apply bg-white;
+    }
   }
 }
