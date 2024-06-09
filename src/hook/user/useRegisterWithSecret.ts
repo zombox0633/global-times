@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../redux/store";
-import { fetchGetRegister } from "../../redux/authentication/getRegisterSlice";
+import { fetchGetRegister } from "../../redux/user/getRegisterSlice";
 
 function useRegisterWithSecret() {
   const dispatch = useDispatch<AppDispatch>();
