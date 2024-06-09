@@ -23,7 +23,7 @@ function DisplayRecommendedCities(props: DisplayRecommendedCitiesPropsType) {
         )}
         {error && (
           <div className='flex h-80 items-center justify-center'>
-            <h3 className=' text-red-500'>Error: {error}</h3>
+            <h3 className=' text-red-500'>{error}</h3>
           </div>
         )}
         {!loading && !error && (
