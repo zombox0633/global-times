@@ -6,9 +6,9 @@ import { useNavigate } from "react-router-dom";
 import { fetchHealthCheck } from "../../redux/healthSlice";
 
 function UniversalLoader({ children }: PropsWithChildren) {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
-  const health = useSelector((state: RootType) => state.health);
+  // const health = useSelector((state: RootType) => state.health);
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -19,17 +19,17 @@ function UniversalLoader({ children }: PropsWithChildren) {
       const timeoutId = setTimeout(() => {
         clearTimeout(timeoutId);
         setIsLoading(false);
-        navigate("/error", { replace: true, state: { code: 503 } });
-      }, 10000);
+        // navigate("/error", { replace: true, state: { code: 503 } });
+      }, 500);
 
       try {
         await dispatch(fetchHealthCheck()).unwrap();
         clearTimeout(timeoutId);
         setIsLoading(false);
 
-        if (health.data === null && health.error) {
-          navigate("/error", { replace: true, state: { code: 503 } });
-        }
+        // if (health.data === null && health.error) {
+        //   navigate("/error", { replace: true, state: { code: 503 } });
+        // }
       } catch (error) {
         console.error(error);
       }
@@ -52,7 +52,7 @@ function UniversalLoader({ children }: PropsWithChildren) {
 
   return (
     <div className=' relative'>
-      <div
+      {/* <div
         className={clsx(
           "absolute top-0 z-[60] flex h-screen w-screen items-center justify-center bg-eerieBlack",
           {
@@ -68,8 +68,8 @@ function UniversalLoader({ children }: PropsWithChildren) {
             <div className='pulse3' />
           </div>
         )}
-      </div>
-      {children}
+      </div>*/}
+      {children} 
     </div>
   );
 }
